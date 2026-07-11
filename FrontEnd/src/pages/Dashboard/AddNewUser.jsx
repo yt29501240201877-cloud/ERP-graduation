@@ -1,4 +1,4 @@
-import { useState, useRef  } from "react";
+import { useState, useRef } from "react";
 import { ChevronRight, ChevronDown, User, Lock, Eye, EyeOff, Info, Shield, RefreshCw } from "lucide-react";
 import Style from "./users.module.css"
 import api from "../../components/api";
@@ -24,20 +24,20 @@ const S = {
 
 export default function AddNewUserDark() {
   const [showPw, setShowPw] = useState(false);
-  const [errors,      setErrors]      = useState({});
-  const [toast,       setToast]       = useState({ visible: false, msg: "" }); 
+  const [errors, setErrors] = useState({});
+  const [toast, setToast] = useState({ visible: false, msg: "" });
 
   const [form, setForm] = useState({
-    firstName:  "",
-    lastName:   "",
-    email:      "",
-    password:   "",
-    role:       "",
-    avatar:     null,  
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    role: "",
+    avatar: null,
     avatarFile: null,
   });
 
- const fileRef = useRef(null);
+  const fileRef = useRef(null);
 
   function showToast(msg) {
     setToast({ visible: true, msg });
@@ -73,59 +73,59 @@ export default function AddNewUserDark() {
 
   function validate() {
     const e = {};
-    if (!form.firstName.trim())       e.firstName = "First name is required.";
-    if (!form.lastName.trim())        e.lastName  = "Last name is required.";
-    if (!form.email.trim())           e.email     = "Email is required.";
-    else if (!EMAIL_RE.test(form.email)) e.email  = "Enter a valid email address.";
-    if (!form.password)               e.password  = "Password is required.";
+    if (!form.firstName.trim()) e.firstName = "First name is required.";
+    if (!form.lastName.trim()) e.lastName = "Last name is required.";
+    if (!form.email.trim()) e.email = "Email is required.";
+    else if (!EMAIL_RE.test(form.email)) e.email = "Enter a valid email address.";
+    if (!form.password) e.password = "Password is required.";
     else if (form.password.length < 8) e.password = "Password must be at least 8 characters.";
-    if (!form.role)                   e.role      = "Please assign a role.";
+    if (!form.role) e.role = "Please assign a role.";
     return e;
   }
 
   function handleCancel() {
-    setForm({ firstName:"", lastName:"", email:"", password:"", role:"", avatar:null, avatarFile:null });
+    setForm({ firstName: "", lastName: "", email: "", password: "", role: "", avatar: null, avatarFile: null });
     setErrors({});
     setShowPwd(false);
     if (fileRef.current) fileRef.current.value = "";
   }
 
   const handleSubmit = async () => {
-  const e = validate();
+    const e = validate();
 
-  if (Object.keys(e).length > 0) {
-    setErrors(e);
-    return;
-  }
-
-  const formData = new FormData();
-
-  formData.append("first_name", form.firstName);
-  formData.append("last_name", form.lastName);
-  formData.append("email", form.email);
-  formData.append("password", form.password);
-  formData.append("role", form.role);
-
-  if (form.avatarFile) {
-    formData.append("image", form.avatarFile);
-  }
-
-  try {
-    await api.post("dashboard/register", formData);
-    
-    showToast("✓ User created successfully!");
-    handleCancel();
-
-  } catch (error) {
-    console.log(error.response?.data);
-
-    if (error.response?.data?.msg) {
-      showToast(error.response.data.msg);
-    } else {
-      showToast("Something went wrong.");
+    if (Object.keys(e).length > 0) {
+      setErrors(e);
+      return;
     }
-  }
-};
+
+    const formData = new FormData();
+
+    formData.append("first_name", form.firstName);
+    formData.append("last_name", form.lastName);
+    formData.append("email", form.email);
+    formData.append("password", form.password);
+    formData.append("role", form.role);
+
+    if (form.avatarFile) {
+      formData.append("image", form.avatarFile);
+    }
+
+    try {
+      await api.post("dashboard/register", formData);
+
+      showToast("✓ User created successfully!");
+      handleCancel();
+
+    } catch (error) {
+      console.log(error.response?.data);
+
+      if (error.response?.data?.msg) {
+        showToast(error.response.data.msg);
+      } else {
+        showToast("Something went wrong.");
+      }
+    }
+  };
 
   return (
     <div className="au-page">
@@ -308,165 +308,190 @@ export default function AddNewUserDark() {
         .au-info-secondary .au-info-icon{ color:#67E8F9; }
         .au-info-title{ font-size:0.9rem; font-weight:700; color:#F1F5F9; margin-bottom:0.25rem; }
         .au-info-text{ font-size:0.8rem; color:#94A3B8; line-height:1.5; }
+     
       `}</style>
 
 
       {/* ---------------- MAIN ---------------- */}
-        <main className="au-content">
-          <div className="au-breadcrumb">
-            <span>User Management</span>
-            <ChevronRight size={13} />
-            <b>Add New User</b>
+      <main className="au-content">
+        <div className="au-breadcrumb">
+          <span>User Management</span>
+          <ChevronRight size={13} />
+          <b>Add New User</b>
+        </div>
+
+        <h1 className="au-page-title">Add New User</h1>
+        <p className="au-page-sub">
+          Fill in the information below to create a new user account and assign permissions within the Flugur ecosystem.
+        </p>
+
+        <div className="au-form-card">
+          <div className="au-section-head">
+            <User size={15} /> Basic Information <span className="au-section-rule" />
           </div>
 
-          <h1 className="au-page-title">Add New User</h1>
-          <p className="au-page-sub">
-            Fill in the information below to create a new user account and assign permissions within the Flugur ecosystem.
-          </p>
-
-          <div className="au-form-card">
-            <div className="au-section-head">
-              <User size={15} /> Basic Information <span className="au-section-rule" />
-            </div>
-
-            <div className="au-avatar-row">
-              <div className="au-avatar-upload">
-                {form.avatar ? ( <img src={form.avatar} alt="" className={Style.profileimg} /> ) : ( <User size={30} color="#64748B" /> )}
-                <div className="au-avatar-edit" title="Click to upload photo" onClick={() => fileRef.current?.click()}>
-                  {form.avatar ? <img src={form.avatar} alt="avatar" className={Style.profileimg} /> : <i className="bi bi-person-circle" />}
-                  </div>
-              </div>
-              <div>
-                <div className="au-upload-label">Profile Picture</div>
-                <div className="au-upload-row">
-                  <button className="au-upload-btn" type="button" onClick={() => fileRef.current?.click()}>Upload Photo</button>
-                  <span className="au-upload-hint">JPG or PNG, max size 2MB</span>
-                  {errors.avatar && <span className={Style.errMsg}>{errors.avatar}</span>}
-                </div>
-                <input ref={fileRef} type="file" accept="image/jpeg,image/png" style={{ display: "none" }} onChange={handleAvatarChange}/>
+          <div className="au-avatar-row">
+            <div className="au-avatar-upload">
+              {form.avatar ? (<img src={form.avatar} alt="" className={Style.profileimg} />) : (<User size={30} color="#64748B" />)}
+              <div className="au-avatar-edit" title="Click to upload photo" onClick={() => fileRef.current?.click()}>
+                {form.avatar ? <img src={form.avatar} alt="avatar" className={Style.profileimg} /> : <i className="bi bi-person-circle" />}
               </div>
             </div>
+            <div>
+              <div className="au-upload-label">Profile Picture</div>
+              <div className="au-upload-row">
+                <button className="au-upload-btn" type="button" onClick={() => fileRef.current?.click()}>Upload Photo</button>
+                <span className="au-upload-hint">JPG or PNG, max size 2MB</span>
+                {errors.avatar && <span className={Style.errMsg}>{errors.avatar}</span>}
+              </div>
+              <input ref={fileRef} type="file" accept="image/jpeg,image/png" style={{ display: "none" }} onChange={handleAvatarChange} />
+            </div>
+          </div>
 
+          <div className="au-field">
+            <label className="au-field-label">User ID</label>
+            <div className="au-input-wrap">
+              <input className="au-input" value="USR-9402" disabled style={{ paddingRight: "3.2rem" }} />
+              <span className="au-auto-badge">AUTO</span>
+            </div>
+            <div className="au-hint">System-generated unique identifier.</div>
+          </div>
+
+          <div className="au-row-2">
             <div className="au-field">
-              <label className="au-field-label">User ID</label>
-              <div className="au-input-wrap">
-                <input className="au-input" value="USR-9402" disabled style={{ paddingRight: "3.2rem" }} />
-                <span className="au-auto-badge">AUTO</span>
-              </div>
-              <div className="au-hint">System-generated unique identifier.</div>
-            </div>
+              <label className="au-field-label">First Name <span className="au-required">*</span></label>
+              <input
+                className="au-input"
+                name="firstName"
+                value={form.firstName}
+                onChange={handleChange}
+                placeholder="First Name"
+              />
 
-            <div className="au-row-2">
-              <div className="au-field">
-                <label className="au-field-label">First Name <span className="au-required">*</span></label>
-                <input
-                  className="au-input"
-                  name="firstName"
-                  value={form.firstName}
+              {errors.firstName && (
+                <div className="text-danger p-2 
+                 rounded-2 " style={{ fontSize: "12px" }}>
+                  <i class="fa-solid fa-triangle-exclamation pe-1"></i>
+                  {errors.firstName}</div>
+              )}
+            </div>
+            <div className="au-field">
+              <label className="au-field-label">Last Name <span className="au-required">*</span></label>
+              <input className="au-input" name="lastName" value={form.lastName} onChange={handleChange} placeholder="Last Name" />
+
+              {errors.lastName && (
+                <div className="text-danger p-2 
+                 rounded-2 " style={{ fontSize: "12px" }}>
+                  <i class="fa-solid fa-triangle-exclamation pe-1"></i>
+                  {errors.lastName}</div>
+              )}
+            </div>
+          </div>
+
+          <div className="au-field">
+            <label className="au-field-label">Email Address <span className="au-required">*</span></label>
+            <input className="au-input" name="email" value={form.email} onChange={handleChange} placeholder="Email Address" />
+            {errors.email && (
+              <div className="text-danger p-2 
+               rounded-2 "
+                style={{ fontSize: "12px" }}><i class="fa-solid fa-triangle-exclamation pe-1"></i>
+                {errors.email}</div>
+            )}
+          </div>
+
+          <div className="au-section-head">
+            <Lock size={15} /> Security &amp; Access <span className="au-section-rule" />
+          </div>
+
+          <div className="au-field">
+            <label className="au-field-label">Initial Password <span className="au-required">*</span></label>
+            <div className="au-input-wrap">
+              <input type={showPw ? "text" : "password"} className="au-input" style={{ paddingRight: "2.6rem" }} name="password"
+                value={form.password} onChange={handleChange} placeholder="Initial Password" />
+              <button type="button" className="au-pw-toggle" onClick={() => setShowPw(!showPw)}>
+                {showPw ? <EyeOff size={16} /> : <Eye size={16} />}
+              </button>
+              {errors.password && (
+                <div className="text-danger p-2 
+                 rounded-2 "
+                  style={{ fontSize: "12px" }}><i class="fa-solid fa-triangle-exclamation pe-1"></i>
+                  {errors.password}</div>
+              )}
+            </div>
+          </div>
+
+          <div className="au-row-2">
+            <div className="au-field">
+              <label className="au-field-label">Assign Role <span className="au-required">*</span></label>
+              <div className="au-select-wrap">
+                <select
+                  className="au-select"
+                  name="role"
+                  value={form.role}
                   onChange={handleChange}
-                />
+                >
+                  <option value="">Select Role</option>
+                  <option value="Admin">Admin</option>
+                  <option value="Accountant">Accountant</option>
+                  <option value="Financial Manger">Financial Manager</option>
+                  <option value="Procurment Manager">Procurement Manager</option>
+                </select>
 
-                {errors.firstName && (
-                  <div style={S.errMsg}>{errors.firstName}</div>
+                {errors.role && (
+                  <div className="text-danger p-2 
+                   rounded-2 "
+                    style={{ fontSize: "12px" }}><i class="fa-solid fa-triangle-exclamation pe-1"></i>
+                    {errors.role}</div>
                 )}
-              </div>
-              <div className="au-field">
-                <label className="au-field-label">Last Name <span className="au-required">*</span></label>
-                <input className="au-input" name="lastName" value={form.lastName} onChange={handleChange}/>
-                {errors.lastName && (<div style={S.errMsg}>{errors.lastName}</div>)}
-              </div>
-            </div>
-
-            <div className="au-field">
-              <label className="au-field-label">Email Address <span className="au-required">*</span></label>
-                <input className="au-input" name="email" value={form.email} onChange={handleChange}/>
-                {errors.email && (<div style={S.errMsg}>{errors.email}</div>)}
-            </div>
-
-            <div className="au-section-head">
-              <Lock size={15} /> Security &amp; Access <span className="au-section-rule" />
-            </div>
-
-            <div className="au-field">
-              <label className="au-field-label">Initial Password <span className="au-required">*</span></label>
-              <div className="au-input-wrap">
-                <input type={showPw ? "text" : "password"} className="au-input" style={{ paddingRight: "2.6rem" }} name="password" value={form.password} onChange={handleChange} />                 
-                <button type="button" className="au-pw-toggle" onClick={() => setShowPw(!showPw)}>
-                  {showPw ? <EyeOff size={16} /> : <Eye size={16} />}
-                </button>
-                {errors.password && (<div style={S.errMsg}>{errors.password}</div>)}
-              </div>
-            </div>
-
-            <div className="au-row-2">
-              <div className="au-field">
-                <label className="au-field-label">Assign Role <span className="au-required">*</span></label>
-                <div className="au-select-wrap">
-                  <select
-  className="au-select"
-  name="role"
-  value={form.role}
-  onChange={handleChange}
->
-    <option value="">Select Role</option>
-    <option value="Admin">Admin</option>
-    <option value="Accountant">Accountant</option>
-    <option value="Financial Manger">Financial Manager</option>
-    <option value="Procurment Manager">Procurement Manager</option>
-</select>
-
-{errors.role && (
-   <div style={S.errMsg}>{errors.role}</div>
-)}
-                  <ChevronDown size={15} className="au-select-caret" />
-                </div>
-              </div>
-            </div>
-
-            <div className="au-form-footer">
-              <div className="au-mandatory-note">Fields marked with <span>*</span> are mandatory.</div>
-              <div className="au-form-actions">
-                <button
-   type="button"
-   className="au-btn-cancel"
-   onClick={handleCancel}
->Cancel</button>
-                <button
-   type="button"
-   className="au-btn-create"
-   onClick={handleSubmit}
->Create User</button>
+                <ChevronDown size={15} className="au-select-caret" />
               </div>
             </div>
           </div>
 
-          <div className="au-info-grid">
-            <div className="au-info-card au-info-primary">
-              <Info size={18} className="au-info-icon" />
-              <div>
-                <div className="au-info-title">Automatic Welcome</div>
-                <div className="au-info-text">The new user will receive an automated invitation email with login instructions.</div>
-              </div>
-            </div>
-            <div className="au-info-card au-info-secondary">
-              <Shield size={18} className="au-info-icon" />
-              <div>
-                <div className="au-info-title">Access Audit</div>
-                <div className="au-info-text">All permission changes are logged in the system security audit trail.</div>
-              </div>
-            </div>
-            <div className="au-info-card au-info-secondary">
-              <RefreshCw size={18} className="au-info-icon" />
-              <div>
-                <div className="au-info-title">LDAP Sync</div>
-                <div className="au-info-text">User will be automatically synced with the corporate directory within 24h.</div>
-              </div>
+          <div className="au-form-footer">
+            <div className="au-mandatory-note">Fields marked with <span>*</span> are mandatory.</div>
+            <div className="au-form-actions">
+              <button
+                type="button"
+                className="au-btn-cancel"
+                onClick={handleCancel}
+              >Cancel</button>
+              <button
+                type="button"
+                className="au-btn-create"
+                onClick={handleSubmit}
+              >Create User</button>
             </div>
           </div>
-        </main>
-        <div style={S.toast(toast.visible)}>
-    {toast.msg}
-</div>
+        </div>
+
+        <div className="au-info-grid">
+          <div className="au-info-card au-info-primary">
+            <Info size={18} className="au-info-icon" />
+            <div>
+              <div className="au-info-title">Automatic Welcome</div>
+              <div className="au-info-text">The new user will receive an automated invitation email with login instructions.</div>
+            </div>
+          </div>
+          <div className="au-info-card au-info-secondary">
+            <Shield size={18} className="au-info-icon" />
+            <div>
+              <div className="au-info-title">Access Audit</div>
+              <div className="au-info-text">All permission changes are logged in the system security audit trail.</div>
+            </div>
+          </div>
+          <div className="au-info-card au-info-secondary">
+            <RefreshCw size={18} className="au-info-icon" />
+            <div>
+              <div className="au-info-title">LDAP Sync</div>
+              <div className="au-info-text">User will be automatically synced with the corporate directory within 24h.</div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <div style={S.toast(toast.visible)} className="border border-success text-success">
+        {toast.msg}
       </div>
+    </div>
   );
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 /**
  * Flugur ERP — Journal Headers
@@ -173,12 +174,7 @@ const styles = {
         marginTop: 20,
         alignItems: "start",
     },
-    actionRow: {
-        display: "flex",
-        justifyContent: "flex-end",
-        marginTop: 20,
-        textDecoration: "none"
-    },
+
     btnPrimary: {
         display: "flex",
         alignItems: "center",
@@ -193,6 +189,11 @@ const styles = {
         cursor: "pointer",
         boxShadow: "0 8px 20px -6px rgba(76, 141, 255, 0.4)",
         transition: "filter .15s ease",
+        justifyContent: "flex-end",
+        marginTop: 20,
+        textDecoration: "none",
+        position: "relative",
+        right: "-87%"
     },
     statGrid: {
         display: "grid",
@@ -395,6 +396,15 @@ function IconEye() {
 }
 
 export default function JournalHeaders() {
+    const navigate = useNavigate();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        // لو وصل هنا يبقى كل الـ required اتملت
+        navigate("/Dashboard/Flugur_Ent");
+    };
+
     return (
         <div style={styles.page}>
             {/* Top bar */}
@@ -436,7 +446,7 @@ export default function JournalHeaders() {
                 </div>
 
                 {/* Create New Journal card */}
-                <div style={styles.card}>
+                <form style={styles.card} onSubmit={handleSubmit} >
                     <div style={styles.cardTitle}>Create New Journal</div>
                     <div style={styles.cardSubtitle}>Initialize a new financial record entry</div>
 
@@ -460,7 +470,7 @@ export default function JournalHeaders() {
                     <div style={styles.formBottomRow}>
                         <div>
                             <label style={styles.label}>Description</label>
-                            <textarea style={styles.textarea} placeholder="Enter transaction details..." />
+                            <textarea style={styles.textarea} placeholder="Enter transaction details..." required />
                         </div>
                         <div>
                             <label style={styles.label}>Source</label>
@@ -474,13 +484,14 @@ export default function JournalHeaders() {
                         </div>
                     </div>
 
-                    <NavLink style={styles.actionRow} to="/Dashboard/Flugur_Ent">
-                        <button style={styles.btnPrimary}>
-                            <IconPlus /> INITIALIZE JOURNAL
-                        </button>
-                    </NavLink>
+                    {/* <NavLink style={styles.actionRow} to="/Dashboard/Flugur_Ent" > */}
+                    <button style={styles.btnPrimary} type="submit">
+                        <IconPlus /> INITIALIZE JOURNAL
+                    </button>
 
-                </div>
+
+
+                </form>
 
                 {/* Stat cards */}
                 <div style={styles.statGrid}>

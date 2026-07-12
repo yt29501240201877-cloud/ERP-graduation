@@ -168,9 +168,16 @@ export default function AddNewUserDark() {
 
         .au-avatar-row{ display:flex; align-items:center; gap:1.5rem; margin-bottom:1.6rem; }
         .au-avatar-upload{
-          position:relative; width:84px; height:84px; border-radius:16px;
-          background:rgba(59,130,246,0.08); border:1.5px dashed rgba(96,165,250,0.3);
-          display:flex; align-items:center; justify-content:center; flex-shrink:0;
+          position:relative; 
+          width:84px;
+           height:84px;
+            border-radius:16px;
+          background:rgba(59,130,246,0.08);
+           border:1.5px dashed rgba(96,165,250,0.3);
+          display:flex;
+           align-items:center; 
+          justify-content:center;
+           flex-shrink:0;
         }
         .au-avatar-edit{
           position:absolute; bottom:-6px; right:-6px;
@@ -332,9 +339,9 @@ export default function AddNewUserDark() {
 
           <div className="au-avatar-row">
             <div className="au-avatar-upload">
-              {form.avatar ? (<img src={form.avatar} alt="" className={Style.profileimg} />) : (<User size={30} color="#64748B" />)}
+              {form.avatar ? (<img src={form.avatar} alt="" className={Style.profileimg} style={{ width: "100%" }} />) : (<User size={30} color="#64748B" />)}
               <div className="au-avatar-edit" title="Click to upload photo" onClick={() => fileRef.current?.click()}>
-                {form.avatar ? <img src={form.avatar} alt="avatar" className={Style.profileimg} /> : <i className="bi bi-person-circle" />}
+                {form.avatar ? <img src={form.avatar} alt="avatar" className={Style.profileimg} style={{ width: "100%" }} /> : <i className="bi bi-person-circle" />}
               </div>
             </div>
             <div>

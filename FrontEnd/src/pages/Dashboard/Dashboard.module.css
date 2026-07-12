@@ -1,22 +1,22 @@
-.umpage{
-    min-height:100vh;
-    width:100%;
-    display:flex;
-    background:linear-gradient(180deg, #020617 0%, #0A0F1E 55%, #020617 100%);
-    color:#E2E8F0;
-    font-family:'Inter', sans-serif;
+.umpage {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    background: linear-gradient(180deg, #020617 0%, #0A0F1E 55%, #020617 100%);
+    color: #E2E8F0;
+    font-family: 'Inter', sans-serif;
 }
 
-.app{
-    display:flex;
-    height:100vh;
-    overflow:hidden
+.app {
+    display: flex;
+    height: 100vh;
+    overflow: hidden
 }
 
-.ummain{ 
-    flex:1; 
-    display:flex; 
-    flex-direction:column; 
-    min-width:0; 
-}
+.ummain {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
 
+}

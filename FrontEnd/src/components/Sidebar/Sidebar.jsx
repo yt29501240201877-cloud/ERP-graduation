@@ -4,7 +4,7 @@ import { LayoutGrid, BookOpen, FileText, Users, Settings, LogOut, Landmark } fro
 
 const NAV_ITEMS = [
   { label: "Dashboard", icon: LayoutGrid, path: "/Dashboard" },
-  { label: "Accounting", icon: BookOpen },
+  { label: "Accounting", icon: BookOpen, path: "/Dashboard/Journal_H" },
   { label: "Reports", icon: FileText },
   { label: "User Management", icon: Users, active: true, path: "/Dashboard/users" },
   { label: "Settings", icon: Settings },

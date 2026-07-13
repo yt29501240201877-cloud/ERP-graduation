@@ -4,5 +4,18 @@
 
 
 :root{
-
+  --bg-page:#060b16;
+  --bg-glow-1: rgba(59,130,246,0.16);
+  --bg-glow-2: rgba(45,212,191,0.10);
+  --surface:#0d1526;
+  --surface-2:#111c33;
+  --border-c:#1e293b;
+  --border-strong:#2a3b57;
+  --text-primary:#f1f5f9;
+  --text-secondary:#94a3b8;
+  --text-muted:#64748b;
+  --accent:#3b82f6;
+  --accent-light:#60a5fa;
+  --success:#34d399;
+  --warning:#fbbf24;
 }

@@ -1,0 +1,49 @@
+.mainCon {
+    background-color: #0a0e1a;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.ctrlAccForm, .usersTable, .quickGuide, .tableRow, .inputBorder, .SelectorList{
+    border:0.2px solid #1f2937;
+    background-color: #111827;
+}
+
+.inputBorder:focus {
+    box-shadow: none;
+    border:0.2px solid #1f2937;
+    color: #fff;
+}
+
+.inputBorder::placeholder {
+    color: #525765;
+}
+
+.SelectorList {
+    color: #fff;
+}
+
+option {
+    background-color: #1f2937;
+}
+
+.ctrlAccForm label, span, th{
+    color: #767d87;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+p {
+    color: #a5a8b2;
+    font-size: 14px;
+}
+
+thead {
+    background-color: #0f1521;
+}
+
+h3 {
+    color: #767d87;
+    font-size: 16px;
+    font-weight: bold;
+}

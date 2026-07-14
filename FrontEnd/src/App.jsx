@@ -15,6 +15,19 @@ const router = createBrowserRouter([
   //       {path: 'New', element: <New/>}
           {path: "general_ledger", element: <GeneralLedger/>}
       ]
+import JournalHeaders from './pages/Dashboard/LedgerPro';
+import FlugurEnt from './pages/Dashboard/InterJourn'
+
+const router = createBrowserRouter([
+  { path: '/', element: <Login /> },
+  {
+    path: 'Dashboard', element: <Dashboard />,
+    children: [
+      { path: 'users', element: <Users /> },
+      { path: 'New', element: <New /> },
+      { path: 'Journal_H', element: <JournalHeaders /> },
+      { path: 'Flugur_Ent', element: <FlugurEnt /> }
+    ]
   },
 ])
 

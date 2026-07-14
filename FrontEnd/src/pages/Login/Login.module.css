@@ -278,23 +278,64 @@
   color: #4ADE80;
 }
 
-.fl-input::placeholder{ color:#5B6684; }
-.fl-input:focus{
-  outline:none;
-  border-color:#4C8DFF !important;
-  background:rgba(19,28,54,0.9) !important;
-  box-shadow:0 0 0 4px rgba(76,141,255,0.18);
+.error {
+  animation: errorShow 0.25s ease-out;
 }
 
-.fl-check:checked{
-  background-color:#4C8DFF;
-  border-color:#4C8DFF;
+@keyframes errorShow {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
   }
 
-.fl-check:focus{ box-shadow:0 0 0 3px rgba(76,141,255,0.25); }
-.fl-link:hover{ text-decoration:underline; }
-.fl-btn:hover{ filter:brightness(1.12); box-shadow:0 14px 32px -8px rgba(59,130,246,0.65); }
-.fl-btn:active{ transform:translateY(1px); }
-.fl-btn:hover .fl-arrow{ transform:translateX(3px); }
-.fl-toggle:hover{ color:#E7ECFB; }
-.fl-help b:hover{ text-decoration:underline; cursor:pointer; }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fl-input::placeholder {
+  color: #5B6684;
+}
+
+.fl-input:focus {
+  outline: none;
+  border-color: #4C8DFF !important;
+  background: rgba(19, 28, 54, 0.9) !important;
+  box-shadow: 0 0 0 4px rgba(76, 141, 255, 0.18);
+}
+
+.fl-check:checked {
+  background-color: #4C8DFF;
+  border-color: #4C8DFF;
+}
+
+.fl-check:focus {
+  box-shadow: 0 0 0 3px rgba(76, 141, 255, 0.25);
+}
+
+.fl-link:hover {
+  text-decoration: underline;
+}
+
+.fl-btn:hover {
+  filter: brightness(1.12);
+  box-shadow: 0 14px 32px -8px rgba(59, 130, 246, 0.65);
+}
+
+.fl-btn:active {
+  transform: translateY(1px);
+}
+
+.fl-btn:hover .fl-arrow {
+  transform: translateX(3px);
+}
+
+.fl-toggle:hover {
+  color: #E7ECFB;
+}
+
+.fl-help b:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}

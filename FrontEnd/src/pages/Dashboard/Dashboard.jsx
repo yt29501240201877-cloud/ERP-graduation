@@ -8,19 +8,8 @@ import { Outlet } from "react-router-dom"
 
 export default function Dashboard() {
   return (
-
-    // <div className={Style.body}>
-    //   <div className={Style.app}>
-    //     <Sidebar/>
-    //       <div className={Style.main}>
-    //         <Topbar/>
-    //         <Outlet/>        
-    //       </div>
-    //   </div> 
-    // </div>
-
     <div className={Style.umpage}>
-        <Sidebar />
+      <Sidebar />
       <div className={Style.ummain}>
         <Topbar />
         <Outlet />

@@ -12,6 +12,7 @@ const NAV_ITEMS = [
 
 
 export default function Sidebar() {
+    
   return (
     <aside className={Style.umsidebar}>
       <div className={Style.umbrand}>
@@ -23,6 +24,7 @@ export default function Sidebar() {
           <div className={Style.umbrandtag}>PRECISION LEDGER</div>
         </div>
       </div>
+      
 
       <nav className={Style.umnav}>
         {NAV_ITEMS.map((item) => (

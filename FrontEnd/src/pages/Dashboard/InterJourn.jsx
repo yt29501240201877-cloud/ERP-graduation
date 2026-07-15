@@ -1,12 +1,8 @@
 import { UserStar } from "lucide-react";
 import React, { useState } from "react";
+import Style from './Journal_L.module.css'
 
-/**
- * Flugur ERP — Journal Lines
- * Re-skinned with the Flugur ERP dark design system.
- * Architecture matches the original screen 1:1 —
- * only visual language (color, type, surfaces) has been swapped.
- */
+
 
 const c = {
     bg: "#0A0E1A",
@@ -383,51 +379,30 @@ export default function JournalLines() {
         setRows(rows.filter((row) => row.id !== id));
     };
     return (
-        <div style={styles.page}>
-            {/* Top bar */}
-            {/* <div style={styles.topbar}>
-                <div style={styles.topbarLeft}>
-                    <div style={styles.brand}>Flugur Enterprise</div>
-                    <div style={styles.nav}>
-                        <div style={styles.navItemActive}>Journals</div>
-                        <div style={styles.navItem}>Accounts</div>
-                        <div style={styles.navItem}>Reporting</div>
-                    </div>
-                </div>
-                <div style={styles.topbarRight}>
-                    <div style={styles.iconBtn}>
-                        <IconShield />
-                    </div>
-                    <div style={styles.iconBtn}>
-                        <IconHelp />
-                    </div>
-                    <div style={styles.avatar}>JD</div>
-                </div>
-            </div> */}
-
-            <div style={styles.container}>
+        <>
+            <div className={Style.container}>
                 {/* Current journal entry summary */}
-                <div style={styles.entryCard}>
+                <div className={Style.entryCard}>
                     <div>
-                        <div style={styles.eyebrow}>Current Journal Entry</div>
-                        <div style={styles.entryTitle}>JV-2024-0812</div>
-                        <div style={styles.entrySubtitle}>
+                        <div className={Style.eyebrow}>Current Journal Entry</div>
+                        <div className={Style.entryTitle}>JV-2024-0812</div>
+                        <div className={Style.entrySubtitle}>
                             Monthly Accruals - Corporate Headquarters Q3 Utilities
                         </div>
                     </div>
-                    <div style={styles.chipRow}>
-                        <div style={styles.chip}>
-                            <div style={styles.chipLabel}>Date</div>
-                            <div style={styles.chipValue}>12 Aug 2024</div>
+                    <div className={Style.chipRow}>
+                        <div className={Style.chip}>
+                            <div className={Style.chipLabel}>Date</div>
+                            <div className={Style.chipValue}>12 Aug 2024</div>
                         </div>
-                        <div style={styles.chip}>
-                            <div style={styles.chipLabel}>Currency</div>
-                            <div style={styles.chipValue}>USD</div>
+                        <div className={Style.chip}>
+                            <div className={Style.chipLabel}>Currency</div>
+                            <div className={Style.chipValue}>USD</div>
                         </div>
-                        <div style={styles.chip}>
-                            <div style={styles.chipLabel}>Status</div>
-                            <div style={styles.chipValueStatus}>
-                                <span style={styles.statusDot} />
+                        <div className={Style.chip}>
+                            <div className={Style.chipLabel}>Status</div>
+                            <div className={Style.chipValueStatus}>
+                                <span className={Style.statusDot} />
                                 DRAFT
                             </div>
                         </div>
@@ -435,71 +410,46 @@ export default function JournalLines() {
                 </div>
 
                 {/* Line items table */}
-                <div style={styles.tableWrap}>
-                    <div style={styles.theadRow}>
-                        <div style={styles.th}>#</div>
-                        <div style={styles.th}>GL Account / Search</div>
-                        <div style={styles.th}>Description</div>
-                        <div style={{ ...styles.th, textAlign: "right" }}>Debit</div>
-                        <div style={{ ...styles.th, textAlign: "right" }}>Credit</div>
-                        <div style={styles.th}></div>
+                <div className={Style.tableWrap}>
+                    <div className={Style.theadRow}>
+                        <div className={Style.th}>#</div>
+                        <div className={Style.th}>GL Account / Search</div>
+                        <div className={Style.th}>Description</div>
+                        <div className={`${Style.th}`} style={{ textAlign: "left" }}>Debit</div>
+                        <div className={`${Style.th}`} style={{ textAlign: "left" }}>Credit</div>
+                        <div className={Style.th}></div>
                     </div>
 
-                    {/* <div style={styles.tr}>
-                        <div style={styles.rowNum}>01</div>
-                        <div style={styles.inputWrap}>
-                            <input
-                                style={styles.inputWithIcon}
-                                defaultValue="6100-001 - Electricity Expense"
-                            />
-                            <span style={styles.searchIcon}>
-                                <IconSearch />
-                            </span>
-                        </div>
-                        <div>
-                            <input style={styles.input} defaultValue="HQ Main Building August" />
-                        </div>
-                        <div>
-                            <input style={styles.numInput} defaultValue="2450.00" />
-                        </div>
-                        <div>
-                            <input style={styles.numInput} defaultValue="0.00" />
-                        </div>
-                        <div style={styles.trashBtn}>
-                            <IconTrash />
-                        </div>
-                    </div> */}
-
                     {rows.map((itame, index) => (
-                        <div style={{ ...styles.tr, borderBottom: "none" }} key={itame.id}>
-                            <div style={styles.rowNum}>{String(index + 1).padStart(2, "0")}</div>
-                            <div style={styles.inputWrap}>
+                        <div className={`${Style.tr}`} style={{ borderBottom: "none" }} key={itame.id}>
+                            <div className={Style.rowNum}>{String(index + 1).padStart(2, "0")}</div>
+                            <div className={Style.inputWrap}>
                                 <input
-                                    style={styles.inputWithIcon}
+                                    className={Style.inputWithIcon}
                                     defaultValue={itame.account}
 
                                 />
-                                <span style={styles.searchIcon}>
+                                <span className={Style.searchIcon}>
                                     <IconSearch />
                                 </span>
                             </div>
                             <div>
-                                <input style={styles.input} defaultValue={itame.description} />
+                                <input className={Style.input} defaultValue={itame.description} />
                             </div>
                             <div>
-                                <input style={styles.numInput} defaultValue={itame.debit} />
+                                <input className={Style.numInput} defaultValue={itame.debit} />
                             </div>
                             <div>
-                                <input style={styles.numInput} defaultValue={itame.credit} />
+                                <input className={Style.numInput} defaultValue={itame.credit} />
                             </div>
-                            <div style={styles.trashBtn} onClick={() => handleDeleteRow(itame.id)}>
+                            <div className={Style.trashBtn} onClick={() => handleDeleteRow(itame.id)}>
                                 <IconTrash />
                             </div>
                         </div>
                     ))}
 
-                    <div style={{ ...styles.addRowWrap, borderTop: `1px solid ${c.border}` }}>
-                        <button style={styles.addRow} onClick={handleAddRow}>
+                    <div className={Style.addRowWrap} style={{ borderTop: `1px solid ${c.border}` }}>
+                        <button className={Style.addRow} onClick={handleAddRow}>
                             <IconPlus /> ADD ROW
                         </button>
                     </div>
@@ -507,28 +457,28 @@ export default function JournalLines() {
             </div>
 
             {/* Footer bar */}
-            <div style={styles.footer}>
-                <div style={styles.footerLeft}>
-                    <div style={styles.totalBlock}>
-                        <div style={styles.totalLabel}>Total Debits</div>
-                        <div style={styles.totalValue}>$ 2,450.00</div>
+            <div className={Style.footer}>
+                <div className={Style.footerLeft}>
+                    <div className={Style.totalBlock}>
+                        <div className={Style.totalLabel}>Total Debits</div>
+                        <div className={Style.totalValue}>$ 2,450.00</div>
                     </div>
-                    <div style={styles.totalBlock}>
-                        <div style={styles.totalLabel}>Total Credits</div>
-                        <div style={styles.totalValue}>$ 2,450.00</div>
+                    <div className={Style.totalBlock}>
+                        <div className={Style.totalLabel}>Total Credits</div>
+                        <div className={Style.totalValue}>$ 2,450.00</div>
                     </div>
-                    <div style={styles.divider} />
-                    <div style={styles.balancedBadge}>
+                    <div className={Style.divider} />
+                    <div className={Style.balancedBadge}>
                         <IconCheckCircle /> BALANCED (0.00)
                     </div>
                 </div>
-                <div style={styles.footerRight}>
-                    <button style={styles.btnGhost}>Save Draft</button>
-                    <button style={styles.btnPrimary}>
+                <div className={Style.footerRight}>
+                    <button className={Style.btnGhost}>Save Draft</button>
+                    <button className={Style.btnPrimary}>
                         <IconPlay /> Post to Ledger
                     </button>
                 </div>
             </div>
-        </div >
+        </>
     );
 }

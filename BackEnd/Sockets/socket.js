@@ -1,6 +1,8 @@
 const {Server} = require("socket.io");
 let io;
 
+const {socketAuth} = require("./socketAuth");
+
 function initializeSocket(server) {
     io = new Server(server, {
         cors: {
@@ -8,6 +10,8 @@ function initializeSocket(server) {
             credentials: true
         }
     });
+
+    io.use(socketAuth);
 
     io.on("connection", (socket)=>{
         console.log(`User connected ${socket.id}`);

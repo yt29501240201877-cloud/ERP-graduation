@@ -1,6 +1,6 @@
 const {Server} = require("socket.io");
 let io;
-
+const {addUser, removeUser, getOnlineUsers} = require("./onlineUsers");
 const {socketAuth} = require("./socketAuth");
 
 function initializeSocket(server) {
@@ -14,10 +14,12 @@ function initializeSocket(server) {
     io.use(socketAuth);
 
     io.on("connection", (socket)=>{
-        console.log(`User connected ${socket.id}`);
+        addUser(socket.user.id, socket.id);
+        console.log(`${socket.user.id} connected`);
 
         socket.on("disconnect", ()=> {
-            console.log(`User disconnect ${socket.id}`);
+            removeUser(socket.user.id, socket.id)
+            console.log(`${socket.user.id} disconnected`);
         });
     });
 

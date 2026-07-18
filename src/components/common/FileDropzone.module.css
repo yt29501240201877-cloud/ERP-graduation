@@ -1,0 +1,33 @@
+.dropzone {
+  border: 1.5px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 36px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.dropzone:hover,
+.dragOver {
+  border-color: #9ca3af;
+  background-color: #fafafa;
+}
+
+.hiddenInput {
+  display: none;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.hint {
+  font-size: 13px;
+  color: var(--color-text-muted);
+}

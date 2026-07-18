@@ -1,0 +1,31 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.info {
+  background-color: var(--color-pending-bg);
+  color: var(--color-pending-text);
+}
+
+.success {
+  background-color: var(--color-success-bg);
+  color: var(--color-success-text);
+}
+
+.neutral {
+  background-color: var(--color-draft-bg);
+  color: var(--color-draft-text);
+}
+
+.danger {
+  background-color: var(--color-danger-bg);
+  color: var(--color-danger-text);
+}

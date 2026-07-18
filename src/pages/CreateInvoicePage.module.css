@@ -1,0 +1,22 @@
+.page {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.stepperCard {
+  margin-bottom: 20px;
+}
+
+.bottomGrid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+  align-items: stretch;
+}
+
+@media (max-width: 900px) {
+  .bottomGrid {
+    grid-template-columns: 1fr;
+  }
+}

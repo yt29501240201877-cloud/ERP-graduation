@@ -1,0 +1,9 @@
+node_modules
+build
+.DS_Store
+npm-debug.log*
+
+# Never commit real environment values
+.env
+.env.local
+.env.production

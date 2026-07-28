@@ -1,7 +1,7 @@
 import Sidebar from "../../components/Sidebar/Sidebar"
 import Topbar from "../../components/Topbar/Topbar"
 import Style from "./Dashboard.module.css"
-import { Outlet } from "react-router-dom"
+import { Outlet } from "react-router"
 
 
 

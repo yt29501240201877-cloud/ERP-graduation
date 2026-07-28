@@ -1,32 +1,35 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router'
 import 'bootstrap-icons/font/bootstrap-icons.css';
-// import Login from "../src/pages/Login/Login"
+import Login from "../src/pages/Login/Login"
 import Dashboard from "../src/pages/Dashboard/Dashboard"
-// import Users from "../src/pages/Dashboard/users"
-// import New from "../src/pages/Dashboard/AddNewUser"
+import Users from "../src/pages/Dashboard/users"
+import New from "../src/pages/Dashboard/AddNewUser"
+import InvoiceLines from './pages/InvoiceLines/InvoiceLines';
 import './App.css'
 import GeneralLedger from './pages/GeneralLedger/GeneralLedger';
 
-const router = createBrowserRouter([
-  // { path: '/', element: <Login/> },
-  { path: 'Dashboard', element: <Dashboard/> ,
-      children: [
-  //       {path: 'users', element: <Users/>},
-  //       {path: 'New', element: <New/>}
-          {path: "general_ledger", element: <GeneralLedger/>}
-      ]
+// const router = createBrowserRouter([
+//   // { path: '/', element: <Login/> },
+//   { path: 'Dashboard', element: <Dashboard/> ,
+//       children: [
+//   //       {path: 'users', element: <Users/>},
+//   //       {path: 'New', element: <New/>}
+//           
+//       ]
 import JournalHeaders from './pages/Dashboard/LedgerPro';
-import FlugurEnt from './pages/Dashboard/InterJourn'
+import FlugurEnt from './pages/Dashboard/InterJourn';
 
 const router = createBrowserRouter([
   { path: '/', element: <Login /> },
   {
     path: 'Dashboard', element: <Dashboard />,
     children: [
+      {path: "InvoiceLines", element: <InvoiceLines /> },
       { path: 'users', element: <Users /> },
       { path: 'New', element: <New /> },
       { path: 'Journal_H', element: <JournalHeaders /> },
-      { path: 'Flugur_Ent', element: <FlugurEnt /> }
+      { path: 'Flugur_Ent', element: <FlugurEnt /> },
+      {path: "general_ledger", element: <GeneralLedger/>}
     ]
   },
 ])

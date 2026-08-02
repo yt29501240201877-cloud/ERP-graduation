@@ -18,18 +18,24 @@ import GeneralLedger from './pages/GeneralLedger/GeneralLedger';
 //       ]
 import JournalHeaders from './pages/Dashboard/LedgerPro';
 import FlugurEnt from './pages/Dashboard/InterJourn';
+import AccountsPayable from './pages/AccountsPayable/AccountsPayable';
+import ApInvoice from './pages/ApInvoice/ApInvoice';
+import CreateInvoice from './pages/CreateInvoice/CreateInvoice';
 
 const router = createBrowserRouter([
   { path: '/', element: <Login /> },
   {
     path: 'Dashboard', element: <Dashboard />,
     children: [
+      {path: "AccountsPayable", element: <AccountsPayable />},
+      {path: "ApInvoice", element: <ApInvoice /> },
+      {path: "CreateInvoice", element: <CreateInvoice />},
       {path: "InvoiceLines", element: <InvoiceLines /> },
       { path: 'users', element: <Users /> },
       { path: 'New', element: <New /> },
       { path: 'Journal_H', element: <JournalHeaders /> },
       { path: 'Flugur_Ent', element: <FlugurEnt /> },
-      {path: "general_ledger", element: <GeneralLedger/>}
+      {path: "generalLedger", element: <GeneralLedger/>}
     ]
   },
 ])

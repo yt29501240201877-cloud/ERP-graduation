@@ -68,7 +68,7 @@ export default function ApInvoice() {
               <button className={style.btnGhost}>
                 <i className="bi bi-download"></i> EXPORT CSV
               </button>
-              <Link className={style.btnPrimary} to='/createInvoice'>
+              <Link className={style.btnPrimary} to="/Dashboard/CreateInvoice">
                 <i className="bi bi-plus-lg"></i> NEW INVOICE
               </Link>
             </div>

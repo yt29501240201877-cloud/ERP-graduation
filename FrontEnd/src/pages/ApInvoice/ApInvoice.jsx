@@ -1,5 +1,7 @@
 import style from "./ApInvoice.module.css";
 import { Link } from "react-router";
+import GlowBtn from './../../components/ui/GlowBtn/GlowBtn';
+import SolidBtn from './../../components/ui/SolidBtn/SolidBtn';
 
 /**
  * Flugur ERP — Invoices (Accounts Payable)
@@ -65,11 +67,9 @@ export default function ApInvoice() {
           <div className={style.headerRow}>
       
             <div className={style.headerActions}>
-              <button className={style.btnGhost}>
-                <i className="bi bi-download"></i> EXPORT CSV
-              </button>
-              <Link className={style.btnPrimary} to="/Dashboard/CreateInvoice">
-                <i className="bi bi-plus-lg"></i> NEW INVOICE
+              <SolidBtn icon="bi-download" text="EXPORT CSV" className="py-3" />
+              <Link to="/Dashboard/CreateInvoice">
+                <GlowBtn text="NEW INVOICE" icon="bi-plus-lg" className="py-3" />
               </Link>
             </div>
           </div>
@@ -111,8 +111,8 @@ export default function ApInvoice() {
                 <div className={style.tab}>Paid</div>
               </div>
               <div className={style.tabIcons}>
-                <i className="bi bi-filter"></i>
-                <i className="bi bi-arrow-left-right"></i>
+                <SolidBtn icon="bi-filter" />
+                <SolidBtn icon="bi-arrow-left-right" />
               </div>
             </div>
 
@@ -156,15 +156,11 @@ export default function ApInvoice() {
             <div className={style.tableFooter}>
               <div className={style.showingText}>Showing 3 of 124 results</div>
               <div className={style.pagination}>
-                <div className={style.pageBtn}>
-                  <i className="bi bi-chevron-left"></i>
-                </div>
-                <div className={style.pageBtnActive}>1</div>
-                <div className={style.pageBtn}>2</div>
-                <div className={style.pageBtn}>3</div>
-                <div className={style.pageBtn}>
-                  <i className="bi bi-chevron-right"></i>
-                </div>
+                <SolidBtn icon="bi-chevron-left" />
+                <GlowBtn text="1" className="text-white" />
+                <SolidBtn text="2" className="text-white" />
+                <SolidBtn text="3" className="text-white" />
+                <SolidBtn icon="bi-chevron-right" />
               </div>
             </div>
           </div>

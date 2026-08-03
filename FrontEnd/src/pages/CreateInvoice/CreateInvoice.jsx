@@ -1,5 +1,8 @@
-import style from "./CreateInvoice.module.css";
 import { useState } from "react";
+import { useNavigate } from "react-router";
+import GlowBtn from "../../components/ui/GlowBtn/GlowBtn";
+import SolidBtn from "../../components/ui/SolidBtn/SolidBtn";
+import style from "./CreateInvoice.module.css";
 
 /**
  * Flugur ERP — Create New AP Invoice
@@ -29,6 +32,12 @@ export default function CreateInvoice() {
     amount: "$250.00",
   },
 ]);
+
+  const navigate = useNavigate()
+
+  const handleCancel = () => {
+      navigate(-1);
+  }
 
 const handleDelete = (id) => {
   setLineItems(lineItems.filter((item) => item.id !== id));
@@ -90,9 +99,7 @@ const handleDelete = (id) => {
           <div className={style.lineItemsCard}>
             <div className={style.lineItemsHeader}>
               <div className={style.lineItemsTitle}>Billable Line Items</div>
-              <button className={style.btnPrimary}>
-                <i className="bi bi-plus-lg"></i> Add Line
-              </button>
+              <GlowBtn icon="bi-plus-lg" text="Add Line" />
             </div>
 
             <div className={style.theadRow}>
@@ -113,9 +120,7 @@ const handleDelete = (id) => {
                 <div className={style.cellTextMuted}>{item.glAccount}</div>
                 <div className={style.cellTextMuted}>{item.taxRate}</div>
                 <div className={style.amountText}>{item.amount}</div>
-                <div className={style.deleteIcon} onClick={() => handleDelete(item.id)}>
-                  <i className="bi bi-trash3"></i>
-                </div>
+                <SolidBtn icon="bi-trash3" action={() => handleDelete(item.id)} className="text-danger" />
               </div>
             ))}
           </div>
@@ -173,12 +178,10 @@ const handleDelete = (id) => {
 
         {/* Footer bar */}
         <div className={style.footerBar}>
-          <button className={style.btnGhost}>Cancel</button>
+          <SolidBtn text="Cancel" action={()=> handleCancel()} />
           <div className={style.footerRight}>
-            <button className={style.btnOutline}>Save as Draft</button>
-            <button className={style.btnSubmit}>
-              Submit for Approval <i className="bi bi-arrow-right"></i>
-            </button>
+            <SolidBtn text="Save as Draft" />
+            <GlowBtn text="Submit for Approval" iconRight="bi-arrow-right" />
           </div>
         </div>
       </div>

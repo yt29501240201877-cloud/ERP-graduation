@@ -16,7 +16,6 @@ import AP_Lines from "./pages/Accountant/AP_Invoices/AP_InvoiceLine"
 import APPayment from "./pages/Accountant/AP_Invoices/AccountsPayablePayment"
 import ARInvoices from "./pages/Accountant/AR_Invoices/AR_Invoices"
 import ARReceipts from "./pages/Accountant/AR_Invoices/AR_Receipts"
-import Assets from "./pages/Accountant/Fixed_Assets/FixedAsset"
 import './App.css'
 
 const router = createBrowserRouter([
@@ -36,7 +35,6 @@ const router = createBrowserRouter([
         {path: 'AP_Payment', element: <APPayment/>},
         {path: 'AR_Invoices', element: <ARInvoices/>},
         {path: 'AR_Receipts/:id', element: <ARReceipts/>},
-        {path: 'Assets', element: <Assets/>},
       ]
   },
 ])

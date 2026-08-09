@@ -1,6 +1,6 @@
 const {Server} = require("socket.io");
 let io;
-const {addUser, removeUser, getOnlineUsers} = require("./onlineUsers");
+const {addUser, removeUser, getOnlineUsers, getUserSockets} = require("./onlineUsers");
 const {socketAuth} = require("./socketAuth");
 
 function initializeSocket(server) {
@@ -33,4 +33,12 @@ function getIO(){
     return io;
 }
 
-module.exports = {initializeSocket, getIO};
+function sendNotificationToUser(userId, notification) {
+    const sockets = getUserSockets(userId);
+
+    sockets.forEach((socketId) => {
+        io.to(socketId).emit("notification", notification);
+    });
+};
+
+module.exports = {initializeSocket, getIO, sendNotificationToUser};

@@ -1,5 +1,6 @@
+import NotificationBell from '../NotificationBell/NotificationBell';
 import Style from './Topbar.module.css'
-import { Search, Bell, HelpCircle } from "lucide-react";
+import { Search, HelpCircle } from "lucide-react";
 
 export default function Topbar() {
   return (
@@ -10,8 +11,7 @@ export default function Topbar() {
       </div>
       <div className={Style.umtopactions}>
         <div className={Style.umiconbtn}>
-          <Bell size={18} />
-          <span className={Style.umnotifdot}/>
+          <NotificationBell />
         </div>
         <HelpCircle size={18} className={Style.umiconbtn}/>
         <div className={Style.umdividerv}/>

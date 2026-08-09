@@ -1,6 +1,7 @@
 const Users = require("../Models/Users")
 const {loginSchema, registerSchema} = require("./Validation/userValidation")
 const jwt = require('jsonwebtoken');
+const {createAndSendNotification} = require("../Services/notificationService");
 
 const login = async (req , res) =>{
      try {
@@ -22,6 +23,15 @@ const login = async (req , res) =>{
         await Users.findOneAndUpdate({email},{is_active: "Active"})
 
         const token = jwt.sign({id:user._id, role: user.role}, process.env.Secret_Key, {expiresIn: "1d", algorithm: "HS256"})
+
+        await createAndSendNotification({
+            recipient: user._id,
+            sender: user._id,
+            type: "user_login",
+            entityType: "user",
+            title: "New login detected",
+            message: "There is a new successful login at"
+        });
 
         res.status(200).json({msg: "Success Login", token, user})
 

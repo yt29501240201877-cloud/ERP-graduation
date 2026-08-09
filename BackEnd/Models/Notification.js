@@ -9,19 +9,17 @@ const notificationSchema = new mongoose.Schema({
     sender: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Users",
-        required: true
     },
     type: {
         type: String,
-        enum: ["invoice_created", "invoice_approved", "invoice_rejected"]
+        enum: ["invoice_created", "invoice_approved", "invoice_rejected", "user_login"]
     },
     entityId: {
-        type: monoose.Schema.Types.ObjectId,
-        required: true
+        type: mongoose.Schema.Types.ObjectId,
     },
     entityType: {
         type: String,
-        enum: ["invoice"]
+        enum: ["invoice", "user"]
     },
     title: {
         type: String,

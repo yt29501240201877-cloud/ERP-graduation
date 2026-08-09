@@ -63,7 +63,7 @@ export default function Login() {
           <div className={Style.mark}>
             <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#0B1120" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             </svg>
-            <img src="../../../public/Logo.svg" style={{width: "20px", marginRight: "10px"}} />
+            <img src="../../../public/Flugur_Logo_v2.png" style={{width: "40px", marginRight: "0px"}} />
           </div>
           <div className={Style.brandName}>Flugur ERP</div>
         </div>

@@ -1,0 +1,380 @@
+/* =========================================
+   NOTIFICATION GLASSMORPHISM MENU
+   ========================================= */
+
+.glassCard {
+  /* Glass base */
+  background: linear-gradient(
+    145deg,
+    rgba(15, 25, 55, 0.92),
+    rgba(7, 14, 34, 0.88)
+  ) !important;
+
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+
+  /* Border */
+  border: 1px solid rgba(100, 150, 255, 0.18) !important;
+  border-radius: 16px !important;
+
+  /* Deep glass shadow + blue glow */
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.45),
+    0 8px 30px rgba(30, 80, 180, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.02) !important;
+
+  overflow: hidden;
+
+  padding: 0 !important;
+
+  color: #e8eefc;
+
+  /* Smooth opening */
+  animation: notificationDrop 0.22s ease-out;
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.glassCard :global(.dropdown-header) {
+  color: #dbe7ff !important;
+
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+
+  padding: 16px 18px !important;
+
+  background: linear-gradient(
+    90deg,
+    rgba(42, 91, 180, 0.18),
+    rgba(91, 61, 170, 0.08),
+    transparent
+  );
+
+  border-bottom: 1px solid rgba(120, 160, 255, 0.12);
+
+  margin: 0;
+}
+
+
+/* =========================================
+   NOTIFICATION ITEM
+   ========================================= */
+
+.glassCard :global(.dropdown-item-text) {
+  position: relative;
+
+  padding: 15px 16px !important;
+
+  background: transparent !important;
+
+  color: #dce5f8 !important;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+/* Hover effect */
+
+.glassCard :global(.dropdown-item-text):hover {
+  background: rgba(70, 110, 190, 0.10) !important;
+
+  box-shadow:
+    inset 3px 0 0 rgba(73, 137, 255, 0.7);
+
+  transform: translateX(1px);
+}
+
+
+/* =========================================
+   UNREAD NOTIFICATION
+   ========================================= */
+
+/*
+   Your JSX adds Bootstrap bg-light when unread.
+   We override it to match the dark glass theme.
+*/
+
+.glassCard :global(.dropdown-item-text.bg-light) {
+  background: linear-gradient(
+    90deg,
+    rgba(55, 115, 255, 0.14),
+    rgba(55, 115, 255, 0.04),
+    transparent
+  ) !important;
+
+  border-left: 3px solid rgba(72, 142, 255, 0.9);
+
+  box-shadow:
+    inset 0 0 25px rgba(50, 110, 255, 0.06);
+}
+
+
+/* =========================================
+   TITLE
+   ========================================= */
+
+.glassCard :global(.dropdown-item-text strong) {
+  color: #f1f5ff !important;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  margin-bottom: 5px !important;
+}
+
+
+/* =========================================
+   MESSAGE
+   ========================================= */
+
+.glassCard :global(.dropdown-item-text p) {
+  color: #9eacc7 !important;
+
+  font-size: 12.5px;
+
+  line-height: 1.5;
+
+  margin-bottom: 6px !important;
+}
+
+
+/* =========================================
+   DATE
+   ========================================= */
+
+.glassCard :global(.dropdown-item-text small) {
+  color: #687894 !important;
+
+  font-size: 10.5px;
+
+  letter-spacing: 0.15px;
+}
+
+
+/* =========================================
+   DIVIDERS
+   ========================================= */
+
+.glassCard :global(.dropdown-divider) {
+  height: 1px;
+
+  margin: 0 !important;
+
+  border: 0 !important;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(100, 140, 210, 0.14),
+    transparent
+  );
+
+  opacity: 1 !important;
+}
+
+
+/* =========================================
+   ACTION BUTTONS
+   ========================================= */
+
+.glassCard :global(.btn) {
+  width: 32px;
+  height: 32px;
+
+  padding: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  background: rgba(255, 255, 255, 0.035);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  transition:
+    all 0.2s ease;
+
+  flex-shrink: 0;
+}
+
+
+/* Mark as read */
+
+.glassCard :global(.btn-outline-primary) {
+  color: #62a4ff !important;
+
+  border-color: rgba(75, 145, 255, 0.35) !important;
+}
+
+
+.glassCard :global(.btn-outline-primary):hover {
+  color: #ffffff !important;
+
+  background: rgba(55, 125, 255, 0.18) !important;
+
+  border-color: rgba(75, 145, 255, 0.75) !important;
+
+  box-shadow:
+    0 0 16px rgba(55, 125, 255, 0.25);
+}
+
+
+/* Delete */
+
+.glassCard :global(.btn-outline-danger) {
+  color: #ff667c !important;
+
+  border-color: rgba(255, 80, 105, 0.3) !important;
+}
+
+
+.glassCard :global(.btn-outline-danger):hover {
+  color: #ffffff !important;
+
+  background: rgba(255, 60, 85, 0.16) !important;
+
+  border-color: rgba(255, 80, 105, 0.7) !important;
+
+  box-shadow:
+    0 0 16px rgba(255, 60, 85, 0.2);
+}
+
+
+/* =========================================
+   EMPTY STATE
+   ========================================= */
+
+.glassCard :global(.dropdown-item-text.text-center) {
+  padding: 30px 20px !important;
+
+  color: #71809d !important;
+
+  font-size: 13px;
+}
+
+
+/* =========================================
+   MARK ALL AS READ
+   ========================================= */
+
+.glassCard > :global(li:last-child) {
+  background: linear-gradient(
+    180deg,
+    rgba(10, 20, 45, 0.2),
+    rgba(5, 12, 28, 0.35)
+  );
+
+  border-top: 1px solid rgba(100, 140, 210, 0.1);
+}
+
+
+.glassCard :global(li:last-child .btn) {
+  width: auto;
+  height: auto;
+
+  padding: 10px 18px;
+
+  border: 0 !important;
+
+  background: transparent !important;
+
+  color: #6da8ff !important;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  border-radius: 8px;
+}
+
+
+.glassCard :global(li:last-child .btn:hover) {
+  color: #a9caff !important;
+
+  background: rgba(65, 125, 235, 0.1) !important;
+
+  box-shadow: none;
+}
+
+
+/* Disabled Mark All */
+
+.glassCard :global(li:last-child .btn:disabled) {
+  color: #475570 !important;
+
+  opacity: 0.65;
+}
+
+
+/* =========================================
+   SCROLLBAR
+   ========================================= */
+
+.glassCard::-webkit-scrollbar {
+  width: 5px;
+}
+
+
+.glassCard::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+.glassCard::-webkit-scrollbar-thumb {
+  background: rgba(80, 130, 220, 0.28);
+
+  border-radius: 10px;
+}
+
+
+.glassCard::-webkit-scrollbar-thumb:hover {
+  background: rgba(90, 145, 240, 0.5);
+}
+
+
+/* =========================================
+   DROPDOWN ANIMATION
+   ========================================= */
+
+@keyframes notificationDrop {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(-8px)
+      scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+/* =========================================
+   OPTIONAL: BETTER LOOK ON SMALL SCREENS
+   ========================================= */
+
+@media (max-width: 576px) {
+  .glassCard {
+    width: min(400px, calc(100vw - 24px)) !important;
+
+    max-height: 70vh !important;
+
+    border-radius: 14px !important;
+  }
+}

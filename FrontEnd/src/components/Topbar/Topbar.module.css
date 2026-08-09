@@ -9,6 +9,7 @@
     justify-content: space-between;
     padding: 0 2rem;
     gap: 1.5rem;
+    z-index: 1000;
 }
 
 .umsearchwrap {

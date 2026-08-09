@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom'
 import Style from "./Login.module.css"
 import api from '../../components/api';
 
-
 export default function Login() {
   const [showPw, setShowPw] = useState(false);
   const [email, setEmail] = useState("");
@@ -28,23 +27,26 @@ export default function Login() {
         password: password,
       })
 
-      console.log("SUCCESS:", response.data)
+    console.log("SUCCESS:", response.data)
 
-      localStorage.setItem("token", response.data.token)
+    localStorage.setItem("token", response.data.token)
 
-      Login(response.data.user || null)
+    Login(response.data.user || null)
 
-      if (response.data.user?.role === "Admin") {
-        navigate('/Dashboard')
-      }
-
-    } catch (error) {
-      console.log("ERROR:", error)
-
-      setError(error.response?.data?.msg || 'Login failed. Please try again.')
-    } finally {
-      setKeepSignedIn(false)
+    if (response.data.user?.role === "Admin") {
+      navigate('/Dashboard')
     }
+    else if (response.data.user?.role === "Accountant") {
+      navigate('/Dashboard')
+    }
+
+  } catch (error) {
+    console.log("ERROR:", error)
+
+    setError(error.response?.data?.msg || 'Login failed. Please try again.')
+  } finally {
+    setKeepSignedIn(false)
+  }
 
   };
 
@@ -61,7 +63,7 @@ export default function Login() {
           <div className={Style.mark}>
             <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#0B1120" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             </svg>
-            <img src="../../../public/Logo.svg" style={{ width: "20px", marginRight: "10px" }} />
+            <img src="../../../public/Logo.svg" style={{width: "20px", marginRight: "10px"}} />
           </div>
           <div className={Style.brandName}>Flugur ERP</div>
         </div>
@@ -79,7 +81,7 @@ export default function Login() {
                   <rect x="2" y="4" width="20" height="16" rx="2" />
                   <path d="m2 6 10 7 10-7" />
                 </svg>
-                <input id="email" type="email" className="fl-input" className={Style.input} placeholder="name@company.com" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                <input id="email" type="email" className="fl-input" className={Style.input} placeholder="name@company.com" value={email} onChange={(e) => setEmail(e.target.value)} required/>
               </div>
             </div>
 
@@ -93,8 +95,8 @@ export default function Login() {
                   <rect x="4" y="10" width="16" height="10" rx="2" />
                   <path d="M8 10V7a4 4 0 0 1 8 0v3" />
                 </svg>
-                <input id="password" type={showPw ? 'text' : 'password'} className="fl-input" className={`${Style.input}`} style={{ paddingRight: "2.6rem" }}
-                  placeholder="Enter your password" onChange={(e) => setPassword(e.target.value)} required />
+                <input id="password" type={showPw ? 'text' : 'password'} className="fl-input" className= {`${Style.input}`} style={{ paddingRight: "2.6rem" }}
+                       placeholder="Enter your password" onChange={(e) => setPassword(e.target.value)} required/>
                 <button type="button" className="fl-toggle" className={Style.pwToggle} onClick={() => setShowPw(!showPw)} aria-label="Show password">
                   {showPw ? (
                     <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -112,7 +114,7 @@ export default function Login() {
             </div>
 
             <div className={Style.checkRow}>
-              <input id="keepSignedIn" type="checkbox" className="fl-check" className={Style.checkbox} checked={keepSignedIn} onChange={(e) => setKeepSignedIn(e.target.checked)} />
+              <input id="keepSignedIn" type="checkbox" className="fl-check" className={Style.checkbox} checked={keepSignedIn} onChange={(e) => setKeepSignedIn(e.target.checked)}/>
               <label htmlFor="keepSignedIn" className={Style.checkLabel}>Keep me signed in</label>
             </div>
 

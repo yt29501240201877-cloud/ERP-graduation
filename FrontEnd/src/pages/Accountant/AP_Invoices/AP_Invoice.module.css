@@ -1,0 +1,571 @@
+/* ==================== Content Area ==================== */
+
+.ivcontent {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.75rem 2rem 3rem;
+}
+
+.ivpagehead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.ivpagetitle {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #F8FAFC;
+  margin: 0;
+}
+
+.ivpagesub {
+  color: #94A3B8;
+  font-size: 0.9rem;
+  margin-top: 0.35rem;
+}
+
+.ivheadactions {
+  display: flex;
+  gap: 0.65rem;
+}
+
+/* Buttons */
+.ivbtnghost {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(76, 141, 255, 0.15);
+  color: #CBD5E1;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  padding: 0.65rem 1.05rem;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.ivbtnghost:hover {
+  background: rgba(30, 41, 59, 0.7);
+}
+
+.ivbtnsolid {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #7FB3FF, #4338CA);
+  color: #020617;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  padding: 0.65rem 1.1rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 20px -6px rgba(76, 141, 255, 0.4);
+}
+
+.ivbtnsolid:hover {
+  filter: brightness(1.1);
+}
+
+/* ---------- Stat Cards ---------- */
+.ivstatsgrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 1100px) {
+  .ivstatsgrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .ivstatsgrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ivstatcard {
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(76, 141, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.15rem 1.3rem;
+  backdrop-filter: blur(20px);
+}
+
+.ivstatlabel {
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #94A3B8;
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+}
+
+.ivstatvalue {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #F8FAFC;
+  margin-bottom: 0.5rem;
+}
+
+.ivstattrend {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #FB7185;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.ivstatnote {
+  font-size: 0.78rem;
+  color: #94A3B8;
+}
+
+.ivprogresstrack {
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(76, 141, 255, 0.12);
+  overflow: hidden;
+  margin-top: 0.3rem;
+}
+
+.ivprogressfill {
+  height: 100%;
+  background: linear-gradient(90deg, #4C8DFF, #7FB3FF);
+  border-radius: 3px;
+}
+
+/* ---------- Create Form ---------- */
+.ivformcard {
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(76, 141, 255, 0.1);
+  border-radius: 20px;
+  padding: 1.6rem 1.8rem;
+  backdrop-filter: blur(20px);
+  margin-bottom: 1.5rem;
+}
+
+.ivformhead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+}
+
+.ivformtitle {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #F8FAFC;
+}
+
+.ivformclose {
+  color: #64748B;
+  cursor: pointer;
+}
+
+.ivformclose:hover {
+  color: #E2E8F0;
+}
+
+.ivformgrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.1rem;
+  margin-bottom: 1.1rem;
+}
+
+@media (max-width: 900px) {
+  .ivformgrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .ivformgrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ivfieldlabel {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #93C5FD;
+  margin-bottom: 0.45rem;
+  display: block;
+}
+
+.ivinput,
+.ivselect {
+  width: 100%;
+  background: rgba(2, 6, 23, 0.6);
+  border: 1.5px solid rgba(76, 141, 255, 0.14);
+  border-radius: 12px;
+  padding: 0.62rem 0.8rem;
+  font-size: 0.88rem;
+  color: #F1F5F9;
+  color-scheme: dark;
+}
+
+.ivinput::placeholder {
+  color: #64748B;
+}
+
+.ivinput:focus,
+.ivselect:focus {
+  outline: none;
+  border-color: #4C8DFF;
+  box-shadow: 0 0 0 4px rgba(76, 141, 255, 0.16);
+}
+
+.ivselect {
+  appearance: none;
+  cursor: pointer;
+}
+
+.ivformactions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.65rem;
+}
+
+.ivbtncancel {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(76, 141, 255, 0.15);
+  color: #CBD5E1;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.62rem 1.1rem;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.ivbtncancel:hover {
+  background: rgba(30, 41, 59, 0.7);
+}
+
+.ivbtnsave {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #7FB3FF, #4338CA);
+  color: #020617;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.62rem 1.2rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.ivbtnsave:hover {
+  filter: brightness(1.1);
+}
+
+.ivbtnsave:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ---------- Table Card ---------- */
+.ivtablecard {
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(76, 141, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+}
+
+.ivtabsrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.ivtabs {
+  display: flex;
+  gap: 1.4rem;
+}
+
+.ivtab {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #64748B;
+  cursor: pointer;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid transparent;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.ivtab.ivtabactive {
+  color: #F1F5F9;
+  border-bottom-color: #4C8DFF;
+}
+
+/* Table Tools & Content */
+.ivtabletools {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.ivtoolbtn {
+  width: 2.1rem;
+  height: 2.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  border: 1px solid rgba(76, 141, 255, 0.12);
+  color: #94A3B8;
+  cursor: pointer;
+  background: none;
+}
+
+.ivtoolbtn:hover {
+  background: rgba(30, 41, 59, 0.6);
+  color: #E2E8F0;
+}
+
+.ivtoolbtn.ivtoolactive {
+  background: rgba(76, 141, 255, 0.15);
+  color: #93C5FD;
+  border-color: rgba(96, 165, 250, 0.3);
+}
+
+.ivtable {
+  width: 100%;
+  font-size: 0.875rem;
+  border-collapse: collapse;
+}
+
+.ivtheadrow {
+  background: rgba(30, 41, 59, 0.4);
+  color: #94A3B8;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.ivth {
+  padding: 0.7rem 1.25rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.ivrow {
+  border-top: 1px solid rgba(76, 141, 255, 0.05);
+  transition: background 0.15s ease;
+  position: relative;
+}
+
+.ivrow:hover {
+  background: rgba(59, 130, 246, 0.05);
+}
+
+.ivtd {
+  padding: 0.9rem 1.25rem;
+  vertical-align: middle;
+}
+
+.ivtdinvno { font-weight: 700; color: #F1F5F9; }
+
+.ivtdvendorcell {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.ivavatarchipsm {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #60A5FA, #4338CA);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #020617;
+}
+
+.ivvendorname { font-weight: 600; color: #F1F5F9; }
+.ivvendorid { font-size: 0.75rem; color: #64748B; }
+.ivtddate { color: #CBD5E1; }
+.ivtdamount {
+  font-weight: 700;
+  color: #F8FAFC;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Badges & Dropdown */
+.ivbadge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  letter-spacing: 0.03em;
+}
+
+.ivbadgepaid { background: rgba(16, 185, 129, 0.15); color: #34D399; }
+.ivbadgeapproved { background: rgba(76, 141, 255, 0.15); color: #93C5FD; }
+.ivbadgepending { background: rgba(76, 141, 255, 0.15); color: yellow; }
+.ivbadgedraft { background: rgba(100, 116, 139, 0.18); color: #94A3B8; }
+
+.ivrowmenuwrap { position: relative; }
+
+.ivmenutrigger {
+  color: #64748B;
+  cursor: pointer;
+}
+
+.ivmenutrigger:hover {
+  color: #E2E8F0;
+}
+
+.ivdropdown {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  margin-top: 0.4rem;
+  z-index: 10;
+  background: #0F172A;
+  border: 1px solid rgba(76, 141, 255, 0.2);
+  border-radius: 10px;
+  overflow: visible;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  min-width: 150px;
+}
+
+.ivdropdownitem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.6rem 0.85rem;
+  font-size: 0.82rem;
+  color: #CBD5E1;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.ivdropdownitem:hover {
+  background: rgba(76, 141, 255, 0.1);
+}
+
+.ivdropdownitem.ivdanger {
+  color: #FB7185;
+}
+
+.ivdropdownitem.ivdanger:hover {
+  background: rgba(244, 63, 94, 0.1);
+}
+
+.ivemptyrow td {
+  padding: 2.5rem 1.25rem;
+  text-align: center;
+  color: #64748B;
+  font-size: 0.9rem;
+}
+
+/* Footer & Pagination */
+.ivfooterrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid rgba(76, 141, 255, 0.1);
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.ivshowingtext {
+  font-size: 0.85rem;
+  color: #94A3B8;
+}
+
+.ivpagination {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.ivpagebtn {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid rgba(76, 141, 255, 0.1);
+  background: transparent;
+  color: #94A3B8;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.ivpagebtn:hover {
+  background: rgba(30, 41, 59, 0.6);
+}
+
+.ivpagebtn.ivpageactive {
+  background: #3B82F6;
+  color: #020617;
+  font-weight: 700;
+  border-color: #3B82F6;
+}
+
+.ivpagebtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Status & Animation */
+.ivstatusbar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  color: #64748B;
+  margin-top: 0.9rem;
+  padding-left: 0.25rem;
+}
+
+.ivstatusbar.ivstatuserror {
+  color: #FB7185;
+}
+
+.ivspin {
+  animation: iv-spin 1s linear infinite;
+}
+
+@keyframes iv-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -8,9 +8,9 @@ import { Users,Plus,Filter,ChevronDown,Download,Pencil,RotateCcw,MoreVertical,Ch
 
 const ROLE_CLASS = {
   Admin: `${Style.umrole} ${Style.umroleadmin}`,
-  Accountant: `${Style.umrole} ${Style.umRoleAccountant}`,
-  "Procurment Manager": `${Style.umrole} ${Style.umRoleManager}`,
-  "Financial Manger": `${Style.umrole} ${Style.umRoleEmployee}`,
+  Accountant: `${Style.umrole} ${Style.umroleaccountant}`,
+  "Financial Manger": `${Style.umrole} ${Style.umrolemanager}`,
+  "Procurment Manager": `${Style.umrole} ${Style.umroleemployee}`,
 };
 
 const is_active = {
@@ -38,7 +38,6 @@ export default function UserManagementDark() {
         setEmployees(res.data.user);
       } catch (err) {
         console.log(err);
-        // showToast('Failed to fetch employees');
       }
     };
     getEmployees();
@@ -52,7 +51,6 @@ export default function UserManagementDark() {
     (u) =>
       u.first_name.toLowerCase().includes(search.toLowerCase()) ||
       u.email.toLowerCase().includes(search.toLowerCase()) 
-      // u.dept.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
@@ -109,7 +107,6 @@ export default function UserManagementDark() {
               </thead>
               <tbody>
                 {filtered.map((u) => (
-                  console.log(u.image),
                   <tr key={u.id} className={Style.umrow}>
                     <td className={`${Style.umtd} ${Style.umtdfirst}`}>
                       <input type="checkbox" className={Style.umcheckbox} checked={selected.includes(u._id)} onChange={() => toggleOne(u._id)}/>

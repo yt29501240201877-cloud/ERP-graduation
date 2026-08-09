@@ -413,3 +413,367 @@
     accent-color: #3B82F6;
     cursor: pointer;
 }
+
+/* ----------------------------------NEW User-------------------------------- */
+
+/* ---------- Content ---------- */
+.aucontent {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.75rem 2rem 3rem;
+}
+
+.aubreadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    color: #64748B;
+    margin-bottom: 0.9rem;
+}
+
+.aubreadcrumb b {
+    color: #CBD5E1;
+    font-weight: 600;
+}
+
+.aupagetitle {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #F8FAFC;
+    margin: 0;
+}
+
+.aupagesub {
+    color: #94A3B8;
+    font-size: 0.9rem;
+    margin-top: 0.4rem;
+}
+
+/* ---------- Form card ---------- */
+.auformcard {
+    margin-top: 1.6rem;
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(76, 141, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem 2.25rem 1.75rem;
+    backdrop-filter: blur(20px);
+}
+
+.ausectionhead {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: #93C5FD;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.ausectionhead:not(:first-child) {
+    margin-top: 2.2rem;
+}
+
+.ausectionrule {
+    flex: 1;
+    height: 1px;
+    background: rgba(76, 141, 255, 0.12);
+    margin-left: 0.5rem;
+}
+
+.auavatarrow {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.6rem;
+}
+
+.auavatarupload {
+    position: relative;
+    width: 84px;
+    height: 84px;
+    border-radius: 16px;
+    background: rgba(59, 130, 246, 0.08);
+    border: 1.5px dashed rgba(96, 165, 250, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.auavataredit {
+    position: absolute;
+    bottom: -6px;
+    right: -6px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #7FB3FF, #3B82F6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #020617;
+    border: 2px solid #0A0F1E;
+}
+
+.auuploadlabel {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #F1F5F9;
+    margin-bottom: 0.5rem;
+}
+
+.auuploadrow {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.auuploadbtn {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(76, 141, 255, 0.2);
+    color: #CBD5E1;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.5rem 0.9rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.auuploadbtn:hover {
+    background: rgba(30, 41, 59, 0.7);
+}
+
+.auuploadhint {
+    font-size: 0.78rem;
+    color: #64748B;
+}
+
+.aufield {
+    margin-bottom: 1.3rem;
+}
+
+.aufieldlabel {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #E2E8F0;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.aurequired {
+    color: #FB7185;
+}
+
+.auhint {
+    font-size: 0.78rem;
+    color: #64748B;
+    margin-top: 0.4rem;
+}
+
+.aurow2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.4rem;
+}
+
+@media (max-width: 720px) {
+    .au-row-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ---------- Inputs & Select ---------- */
+.auinputwrap,
+.auselectwrap {
+    position: relative;
+}
+
+.auinput,
+.auselect {
+    width: 100%;
+    background: rgba(2, 6, 23, 0.6);
+    border: 1.5px solid rgba(76, 141, 255, 0.14);
+    border-radius: 12px;
+    padding: 0.7rem 0.9rem;
+    font-size: 0.9rem;
+    color: #F1F5F9;
+}
+
+.auinput::placeholder {
+    color: #64748B;
+}
+
+.auinput:focus,
+.auselect:focus {
+    outline: none;
+    border-color: #4C8DFF;
+    box-shadow: 0 0 0 4px rgba(76, 141, 255, 0.16);
+}
+
+.auinput:disabled {
+    color: #94A3B8;
+    cursor: default;
+}
+
+.auautobadge {
+    position: absolute;
+    right: 0.7rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(76, 141, 255, 0.15);
+    color: #93C5FD;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+}
+
+.aupwtoggle {
+    position: absolute;
+    right: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #64748B;
+    cursor: pointer;
+    display: flex;
+}
+
+.aupwtoggle:hover {
+    color: #E2E8F0;
+}
+
+/* Select Caret */
+.auselect {
+    padding-right: 2.2rem;
+    appearance: none;
+}
+
+.auselectcaret {
+    position: absolute;
+    right: 0.85rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748B;
+    pointer-events: none;
+}
+
+/* ---------- Form Footer ---------- */
+.auformfooter {
+    margin-top: 1.8rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid rgba(76, 141, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.aumandatorynote {
+    font-size: 0.82rem;
+    color: #64748B;
+}
+
+.aumandatorynote span {
+    color: #FB7185;
+}
+
+.auformactions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.aubtncancel {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(76, 141, 255, 0.15);
+    color: #CBD5E1;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.7rem 1.4rem;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.aubtncancel:hover {
+    background: rgba(30, 41, 59, 0.7);
+}
+
+.aubtncreate {
+    background: linear-gradient(135deg, #7FB3FF, #4338CA);
+    color: #020617;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.7rem 1.5rem;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 8px 20px -6px rgba(76, 141, 255, 0.4);
+}
+
+.aubtncreate:hover {
+    filter: brightness(1.1);
+}
+
+/* ---------- Info cards ---------- */
+.auinfogrid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 900px) {
+    .au-info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.auinfocard {
+    border-radius: 16px;
+    padding: 1.15rem 1.3rem;
+    display: flex;
+    gap: 0.8rem;
+}
+
+.auinfocard .auinfoprimary {
+    background: linear-gradient(135deg, rgba(76, 141, 255, 0.18), rgba(67, 56, 202, 0.18));
+    border: 1px solid rgba(96, 165, 250, 0.25);
+}
+
+.auinfocard .auinfosecondary {
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(76, 141, 255, 0.1);
+}
+
+.auinfoicon {
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+}
+
+.auinfoprimary .auinfoicon {
+    color: #93C5FD;
+}
+
+.auinfosecondary .auinfoicon {
+    color: #67E8F9;
+}
+
+.auinfotitle {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #F1F5F9;
+    margin-bottom: 0.25rem;
+}
+
+.auinfotext {
+    font-size: 0.8rem;
+    color: #94A3B8;
+    line-height: 1.5;
+}

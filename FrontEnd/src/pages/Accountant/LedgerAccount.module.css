@@ -1,0 +1,553 @@
+/* ---------- Content ---------- */
+.lpcontent {
+    max-width: 100%;
+    padding: 2rem 2rem 3rem;
+}
+
+.lpformsection {
+    padding-bottom: 1.6rem;
+    margin-bottom: 1.8rem;
+    border-bottom: 1px solid rgba(76, 141, 255, 0.1);
+}
+
+.lpsectiontitle {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #F8FAFC;
+    margin: 0 0 0.3rem;
+}
+
+.lpsectionsub {
+    color: #94A3B8;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.lpformgrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.4rem;
+    margin-bottom: 1.4rem;
+}
+
+@media (max-width:1100px) {
+    .lpformgrid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width:640px) {
+    .lpformgrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.lpfieldlabel {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #93C5FD;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.lpinput,
+.lpselect {
+    width: 100%;
+    background: rgba(2, 6, 23, 0.6);
+    border: 1.5px solid rgba(76, 141, 255, 0.14);
+    border-radius: 12px;
+    padding: 0.68rem 0.85rem;
+    font-size: 0.9rem;
+    color: #F1F5F9;
+}
+
+.lpinput::placeholder {
+    color: #64748B;
+}
+
+.lpinput:focus,
+.lpselect:focus {
+    outline: none;
+    border-color: #4C8DFF;
+    box-shadow: 0 0 0 4px rgba(76, 141, 255, 0.16);
+}
+
+.lpselectwrap {
+    position: relative;
+}
+
+.lpselect {
+    appearance: none;
+    cursor: pointer;
+}
+
+.lpselectcaret {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748B;
+    pointer-events: none;
+}
+
+.lpbalancetoggle {
+    display: flex;
+    gap: 0.6rem;
+}
+
+.lpbalancebtn {
+    flex: 1;
+    padding: 0.68rem 0.85rem;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    border: 1.5px solid rgba(76, 141, 255, 0.14);
+    background: rgba(2, 6, 23, 0.6);
+    color: #94A3B8;
+    cursor: pointer;
+}
+
+.lpbalancebtn.lpbalanceselected {
+    background: linear-gradient(135deg, #7FB3FF, #4338CA);
+    color: #020617;
+    border-color: transparent;
+}
+
+.lpcontrolrow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.lpcontrolleft {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+}
+
+.lpswitch {
+    width: 42px;
+    height: 24px;
+    border-radius: 999px;
+    background: rgba(76, 141, 255, 0.15);
+    border: 1px solid rgba(76, 141, 255, 0.25);
+    position: relative;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background .15s ease;
+}
+
+.lpswitch.lpswitchon {
+    background: linear-gradient(135deg, #7FB3FF, #4338CA);
+}
+
+.lpswitchknob {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #F8FAFC;
+    transition: transform .15s ease;
+}
+
+.lpswitch.lpswitchon .lpswitchknob {
+    transform: translateX(18px);
+}
+
+.lpcontroltitle {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #F1F5F9;
+}
+
+.lpcontrolsub {
+    font-size: 0.8rem;
+    color: #64748B;
+}
+
+.lpcontrolactions {
+    display: flex;
+    gap: 0.65rem;
+}
+
+.lpbtnsave {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #7FB3FF, #4338CA);
+    color: #020617;
+    font-weight: 700;
+    font-size: 0.88rem;
+    padding: 0.68rem 1.3rem;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 8px 20px -6px rgba(76, 141, 255, 0.4);
+}
+
+.lpbtnsave:hover {
+    filter: brightness(1.1);
+}
+
+.lpbtnsave:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.lpbtnclear {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(76, 141, 255, 0.15);
+    color: #CBD5E1;
+    font-weight: 600;
+    font-size: 0.88rem;
+    padding: 0.68rem 1.2rem;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.lpbtnclear:hover {
+    background: rgba(30, 41, 59, 0.7);
+}
+
+/* ---------- Retrieve Accounts ---------- */
+.lpretrievehead {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.lpretrievetitle {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #F8FAFC;
+    margin: 0 0 0.35rem;
+}
+
+.lpbreadcrumb {
+    font-size: 0.85rem;
+    color: #64748B;
+}
+
+.lpbreadcrumb b {
+    color: #93C5FD;
+    font-weight: 600;
+}
+
+.lpretrievetools {
+    display: flex;
+    gap: 0.6rem;
+}
+
+.lpfilterwrap {
+    position: relative;
+}
+
+.lpfiltericon {
+    position: absolute;
+    left: 0.7rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748B;
+}
+
+.lpfilterinput {
+    background: rgba(2, 6, 23, 0.6);
+    border: 1px solid rgba(76, 141, 255, 0.1);
+    border-radius: 10px;
+    padding: 0.55rem 0.85rem 0.55rem 2.1rem;
+    font-size: 0.85rem;
+    color: #E2E8F0;
+    width: 240px;
+}
+
+.lpfilterinput::placeholder {
+    color: #64748B;
+}
+
+.lpfilterinput:focus {
+    outline: none;
+    border-color: rgba(96, 165, 250, 0.4);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.lpexportbtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(76, 141, 255, 0.15);
+    color: #CBD5E1;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 0.55rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.lpexportbtn:hover {
+    background: rgba(30, 41, 59, 0.7);
+}
+
+.lptablecard {
+    margin-top: 1.3rem;
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(76, 141, 255, 0.1);
+    border-radius: 18px;
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+}
+
+.lptable {
+    width: 100%;
+    font-size: 0.875rem;
+    border-collapse: collapse;
+}
+
+.lptheadrow {
+    background: rgba(30, 41, 59, 0.4);
+    color: #94A3B8;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.lpth {
+    padding: 0.75rem 1.25rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+.lprow {
+    border-top: 1px solid rgba(76, 141, 255, 0.05);
+    transition: background .15s ease;
+    position: relative;
+}
+
+.lprow:hover {
+    background: rgba(59, 130, 246, 0.05);
+}
+
+.lptd {
+    padding: 0.95rem 1.25rem;
+    vertical-align: middle;
+}
+
+.lptdcode {
+    color: #93C5FD;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+.lptdname {
+    font-weight: 700;
+    color: #F1F5F9;
+}
+
+.lptdbalance {
+    font-weight: 700;
+    color: #F1F5F9;
+    letter-spacing: 0.03em;
+}
+
+.lptag {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+}
+
+.lptagasset {
+    background: rgba(76, 141, 255, 0.15);
+    color: #93C5FD;
+}
+
+.lptagliability {
+    background: rgba(56, 189, 248, 0.12);
+    color: #67E8F9;
+}
+
+.lptagrevenue {
+    background: rgba(100, 116, 139, 0.18);
+    color: #CBD5E1;
+}
+
+.lptagexpense {
+    background: rgba(100, 116, 139, 0.15);
+    color: #94A3B8;
+}
+
+.lptagequity {
+    background: rgba(129, 140, 248, 0.15);
+    color: #A5B4FC;
+}
+
+.lpstatus {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.lpstatusdot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.lpstatusactive {
+    color: #34D399;
+}
+
+.lpstatuslocked {
+    color: #FBBF24;
+}
+
+.lprowmenuwrap {
+    position: relative;
+}
+
+.lpmenutrigger {
+    color: #64748B;
+    cursor: pointer;
+}
+
+.lpmenutrigger:hover {
+    color: #E2E8F0;
+}
+
+.lpdropdown {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: 0.4rem;
+    z-index: 10;
+    background: #0F172A;
+    border: 1px solid rgba(76, 141, 255, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    min-width: 170px;
+}
+
+.lpdropdownitem {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    width: 100%;
+    padding: 0.6rem 0.85rem;
+    font-size: 0.82rem;
+    color: #CBD5E1;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+.lpdropdownitem:hover {
+    background: rgba(76, 141, 255, 0.1);
+}
+
+.lpdropdownitem.lpdanger {
+    color: #FB7185;
+}
+
+.lp-dropdown-item.lp-danger:hover {
+    background: rgba(244, 63, 94, 0.1);
+}
+
+.lpemptyrow td {
+    padding: 2.5rem 1.25rem;
+    text-align: center;
+    color: #64748B;
+    font-size: 0.9rem;
+}
+
+.lpfooterrow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-top: 1px solid rgba(76, 141, 255, 0.1);
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.lpshowing-text {
+    font-size: 0.85rem;
+    color: #94A3B8;
+}
+
+.lppagination {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.lppagebtn {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    border: 1px solid rgba(76, 141, 255, 0.1);
+    background: transparent;
+    color: #94A3B8;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.lppagebtn:hover {
+    background: rgba(30, 41, 59, 0.6);
+}
+
+.lppagebtn.lppageactive {
+    background: #3B82F6;
+    color: #020617;
+    font-weight: 700;
+    border-color: #3B82F6;
+}
+
+.lppagebtn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.lpstatusbar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    color: #64748B;
+    margin-top: 0.9rem;
+    padding-left: 0.1rem;
+}
+
+.lpstatusbar.lpstatuserror {
+    color: #FB7185;
+}
+
+.lpspin {
+    animation: lp-spin 1s linear infinite;
+}
+
+@keyframes lpspin {
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,860 @@
+/* ========== Page ========== */
+.vm-page {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    background: linear-gradient(180deg, #020617 0%, #0A0F1E 55%, #020617 100%);
+    color: #E2E8F0;
+    font-family: 'Inter', sans-serif;
+}
+
+/* ---------- Sidebar ---------- */
+.vm-sidebar {
+    width: 16rem;
+    flex-shrink: 0;
+    border-right: 1px solid rgba(76, 141, 255, 0.1);
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+}
+
+.vm-brand {
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-bottom: 1px solid rgba(76, 141, 255, 0.1);
+}
+
+.vm-brand-mark {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #7FB3FF, #4338CA);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px -6px rgba(76, 141, 255, 0.4);
+    flex-shrink: 0;
+}
+
+.vm-brand-name {
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    color: #F8FAFC;
+    line-height: 1.2;
+}
+
+.vm-brand-tag {
+    font-size: 0.625rem;
+    letter-spacing: 0.15em;
+    color: rgba(127, 179, 255, 0.7);
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.vm-nav {
+    flex: 1;
+    padding: 1rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.vm-nav-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: 1px solid transparent;
+    background: none;
+    color: #94A3B8;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+    text-align: left;
+}
+
+.vm-nav-item:hover {
+    background: rgba(30, 41, 59, 0.6);
+    color: #E2E8F0;
+}
+
+.vm-nav-item.vm-active {
+    background: rgba(76, 141, 255, 0.15);
+    color: #93C5FD;
+    border-color: rgba(96, 165, 250, 0.2);
+}
+
+.vm-new-invoice {
+    margin: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: linear-gradient(135deg, #7FB3FF, #4338CA);
+    color: #020617;
+    font-weight: 700;
+    font-size: 0.875rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    box-shadow: 0 8px 20px -6px rgba(76, 141, 255, 0.4);
+}
+
+.vm-new-invoice:hover {
+    filter: brightness(1.1);
+}
+
+.vm-sidebar-footer {
+    padding: 0.4rem 1rem 1rem;
+}
+
+.vm-footer-link {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.55rem 0.5rem;
+    font-size: 0.85rem;
+    color: #64748B;
+    cursor: pointer;
+}
+
+.vm-footer-link:hover {
+    color: #CBD5E1;
+}
+
+/* ---------- Main / Topbar ---------- */
+.vm-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.vm-topbar {
+    height: 4rem;
+    border-bottom: 1px solid rgba(76, 141, 255, 0.1);
+    background: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    gap: 1.5rem;
+}
+
+.vm-tabs {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+}
+
+.vm-tab {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #64748B;
+    cursor: pointer;
+}
+
+.vm-tab.vm-tab-active {
+    color: #F1F5F9;
+}
+
+.vm-search-wrap {
+    flex: 1;
+    max-width: 22rem;
+    position: relative;
+}
+
+.vm-search-icon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748B;
+}
+
+.vm-search-input {
+    width: 100%;
+    background: rgba(2, 6, 23, 0.6);
+    border: 1px solid rgba(76, 141, 255, 0.1);
+    border-radius: 12px;
+    padding: 0.5rem 0.75rem 0.5rem 2.25rem;
+    font-size: 0.875rem;
+    color: #E2E8F0;
+}
+
+.vm-search-input::placeholder {
+    color: #64748B;
+}
+
+.vm-search-input:focus {
+    outline: none;
+    border-color: rgba(96, 165, 250, 0.4);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.vm-top-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-shrink: 0;
+}
+
+.vm-icon-btn {
+    position: relative;
+    color: #94A3B8;
+    cursor: pointer;
+    display: flex;
+}
+
+.vm-icon-btn:hover {
+    color: #E2E8F0;
+}
+
+.vm-notif-dot {
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #F43F5E;
+}
+
+.vm-avatar-chip {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #67E8F9, #3B82F6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #020617;
+}
+
+/* ---------- Content Area ---------- */
+.vmcontent {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.75rem 2rem 3rem;
+}
+
+.vmpagehead {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.vmpagetitle {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #F8FAFC;
+    margin: 0;
+}
+
+.vmpagesub {
+    color: #94A3B8;
+    font-size: 0.9rem;
+    margin-top: 0.35rem;
+}
+
+.vmheadactions {
+    display: flex;
+    gap: 0.65rem;
+}
+
+.vmbtnghost {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(76, 141, 255, 0.15);
+    color: #CBD5E1;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 0.6rem 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.vmbtnghost:hover {
+    background: rgba(30, 41, 59, 0.7);
+}
+
+.vmbtnsolid {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #7FB3FF, #4338CA);
+    color: #020617;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0.6rem 1.1rem;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 8px 20px -6px rgba(76, 141, 255, 0.4);
+}
+
+.vmbtnsolid:hover {
+    filter: brightness(1.1);
+}
+
+.vmlayout {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+@media (max-width: 1100px) {
+    .vmlayout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ---------- Form Card ---------- */
+.vmformcard {
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(76, 141, 255, 0.1);
+    border-radius: 20px;
+    padding: 1.75rem 1.6rem;
+    backdrop-filter: blur(20px);
+}
+
+.vmformtitle {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #F8FAFC;
+    margin: 0 0 0.35rem;
+}
+
+.vmformsub {
+    font-size: 0.85rem;
+    color: #94A3B8;
+    margin-bottom: 1rem;
+}
+
+.vmformrule {
+    height: 1px;
+    background: rgba(76, 141, 255, 0.12);
+    margin-bottom: 1.4rem;
+}
+
+.vmfield {
+    margin-bottom: 1.2rem;
+}
+
+.vmfieldlabel {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #93C5FD;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.vminput {
+    width: 100%;
+    background: rgba(2, 6, 23, 0.6);
+    border: 1.5px solid rgba(76, 141, 255, 0.14);
+    border-radius: 12px;
+    padding: 0.68rem 0.85rem;
+    font-size: 0.9rem;
+    color: #F1F5F9;
+}
+
+.vminput::placeholder {
+    color: #64748B;
+}
+
+.vminput:focus {
+    outline: none;
+    border-color: #4C8DFF;
+    box-shadow: 0 0 0 4px rgba(76, 141, 255, 0.16);
+}
+
+.vmrow2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.vmselectwrap {
+    position: relative;
+}
+
+.vmselect {
+    width: 100%;
+    background: rgba(2, 6, 23, 0.6);
+    border: 1.5px solid rgba(76, 141, 255, 0.14);
+    border-radius: 12px;
+    padding: 0.68rem 2.1rem 0.68rem 0.85rem;
+    font-size: 0.9rem;
+    color: #F1F5F9;
+    appearance: none;
+    cursor: pointer;
+}
+
+.vmselect:focus {
+    outline: none;
+    border-color: #4C8DFF;
+    box-shadow: 0 0 0 4px rgba(76, 141, 255, 0.16);
+}
+
+.vmselectcaret {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748B;
+    pointer-events: none;
+}
+
+/* Checkbox */
+.vmcheckrow {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin: 1.3rem 0 1.4rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(76, 141, 255, 0.1);
+}
+
+.vmcheckbox {
+    margin-top: 0.15rem;
+    accent-color: #3B82F6;
+    cursor: pointer;
+}
+
+.vmchecklabel {
+    font-size: 0.85rem;
+    color: #CBD5E1;
+    line-height: 1.4;
+}
+
+/* Buttons */
+.vmcreatebtn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #7FB3FF, #4338CA);
+    color: #020617;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 8px 20px -6px rgba(76, 141, 255, 0.4);
+}
+
+.vmcreatebtn:hover {
+    filter: brightness(1.1);
+}
+
+.vmcreatebtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.vmresetlink {
+    display: block;
+    text-align: center;
+    margin-top: 0.9rem;
+    font-size: 0.8rem;
+    color: #64748B;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.vmresetlink:hover {
+    color: #CBD5E1;
+}
+
+/* Validation Card */
+.vmvalidationcard {
+    margin-top: 1.25rem;
+    display: flex;
+    gap: 0.75rem;
+    background: rgba(76, 141, 255, 0.1);
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    border-radius: 16px;
+    padding: 1.1rem 1.25rem;
+}
+
+.vmvalidationicon {
+    color: #93C5FD;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+}
+
+.vmvalidationtitle {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #F1F5F9;
+    margin-bottom: 0.3rem;
+}
+
+.vmvalidationtext {
+    font-size: 0.8rem;
+    color: #94A3B8;
+    line-height: 1.5;
+}
+
+/* ---------- Directory & Table ---------- */
+.vmdirectorycard {
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(76, 141, 255, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+}
+
+.vmdirectoryhead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid rgba(76, 141, 255, 0.1);
+}
+
+.vmdirectorytitlewrap {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.vmdirectorytitle {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #F8FAFC;
+}
+
+.vmtotalchip {
+    background: rgba(76, 141, 255, 0.15);
+    color: #93C5FD;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.3rem 0.6rem;
+    border-radius: 8px;
+    letter-spacing: 0.03em;
+}
+
+.vmdirectorycontrols {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.vmfilterwrap {
+    position: relative;
+}
+
+.vmfiltericon {
+    position: absolute;
+    left: 0.7rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748B;
+}
+
+.vmfilterinput {
+    background: rgba(2, 6, 23, 0.6);
+    border: 1px solid rgba(76, 141, 255, 0.1);
+    border-radius: 10px;
+    padding: 0.5rem 0.75rem 0.5rem 2.1rem;
+    font-size: 0.85rem;
+    color: #E2E8F0;
+    width: 220px;
+}
+
+.vmfilterinput::placeholder {
+    color: #64748B;
+}
+
+.vmfilterinput:focus {
+    outline: none;
+    border-color: rgba(96, 165, 250, 0.4);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.vmmorebtn {
+    width: 2.2rem;
+    height: 2.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: 1px solid rgba(76, 141, 255, 0.12);
+    color: #94A3B8;
+    cursor: pointer;
+}
+
+.vmmorebtn:hover {
+    background: rgba(30, 41, 59, 0.6);
+}
+
+/* Table */
+.vmtable {
+    width: 100%;
+    font-size: 0.875rem;
+    border-collapse: collapse;
+}
+
+.vmtheadrow {
+    background: rgba(30, 41, 59, 0.4);
+    color: #94A3B8;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.vmth {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+.vmthlast {
+    text-align: center;
+}
+
+.vmrow {
+    border-top: 1px solid rgba(76, 141, 255, 0.05);
+    transition: background 0.15s ease;
+}
+
+.vmrow:hover {
+    background: rgba(59, 130, 246, 0.05);
+}
+
+.vmtd {
+    padding: 0.95rem 1rem;
+    vertical-align: middle;
+}
+
+.vmtdid {
+    color: #93C5FD;
+    font-weight: 600;
+    font-size: 0.82rem;
+}
+
+.vmtdname {
+    font-weight: 600;
+    color: #F1F5F9;
+}
+
+.vmtdcontact {
+    font-size: 0.78rem;
+    color: #64748B;
+}
+
+.vmtdtax {
+    color: #CBD5E1;
+    font-variant-numeric: tabular-nums;
+}
+
+.vmtdactions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.6rem;
+}
+
+.vmiconaction {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    border: 1px solid rgba(76, 141, 255, 0.12);
+    color: #94A3B8;
+    cursor: pointer;
+    background: none;
+}
+
+.vmiconaction:hover {
+    background: rgba(30, 41, 59, 0.6);
+    color: #E2E8F0;
+}
+
+.vmiconaction .vmblockactive {
+    background: rgba(244, 63, 94, 0.15);
+    border-color: rgba(244, 63, 94, 0.3);
+    color: #FB7185;
+}
+
+.vmiconaction .vmblockactive:hover {
+    background: rgba(244, 63, 94, 0.25);
+}
+
+/* Badges */
+.vmbadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.28rem 0.6rem;
+    border-radius: 999px;
+}
+
+.vmbadgedot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.vmbadgeactive {
+    background: rgba(16, 185, 129, 0.12);
+    color: #34D399;
+    border: 1px solid rgba(52, 211, 153, 0.25);
+}
+
+.vmbadgeblocked {
+    background: rgba(244, 63, 94, 0.12);
+    color: #FB7185;
+    border: 1px solid rgba(251, 113, 133, 0.25);
+}
+
+.vmbadgeinactive {
+    background: rgba(100, 116, 139, 0.15);
+    color: #94A3B8;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+/* Edit Mode */
+.vmeditinput {
+    background: rgba(2, 6, 23, 0.7);
+    border: 1px solid rgba(76, 141, 255, 0.25);
+    border-radius: 8px;
+    padding: 0.35rem 0.5rem;
+    font-size: 0.85rem;
+    color: #F1F5F9;
+    width: 100%;
+    margin-bottom: 0.3rem;
+}
+
+.vmeditinput:focus {
+    outline: none;
+    border-color: #4C8DFF;
+}
+
+.vmeditactions {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.vmemptyrow td {
+    padding: 2.5rem 1rem;
+    text-align: center;
+    color: #64748B;
+    font-size: 0.9rem;
+}
+
+/* Status Bar */
+.vm-status-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    color: #64748B;
+    margin-top: 0.9rem;
+    padding-left: 0.25rem;
+}
+
+.rcfooterrow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1.1rem;
+    padding-bottom: 1.1rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 1px 16px;
+}
+
+.rcshowingtext {
+    font-size: 0.85rem;
+    color: #94A3B8;
+}
+
+.rcpagination {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.rcpagebtn {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    border: 1px solid rgba(76, 141, 255, 0.1);
+    background: transparent;
+    color: #94A3B8;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.rcpagebtn:hover {
+    background: rgba(30, 41, 59, 0.6);
+}
+
+.rcpagebtn.rcpageactive {
+    background: #3B82F6;
+    color: #020617;
+    font-weight: 700;
+    border-color: #3B82F6;
+}
+
+.rcpagebtn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.vm-status-bar.vm-status-error {
+    color: #FB7185;
+}
+
+.vmspin {
+    animation: vm-spin 1s linear infinite;
+}
+
+@keyframes vmspin {
+    to {
+        transform: rotate(360deg);
+    }
+}

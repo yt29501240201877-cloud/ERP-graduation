@@ -1,24 +1,10 @@
 import React from "react";
+
 import { NavLink } from "react-router";
 import { useNavigate } from "react-router";
-
-/**
- * Flugur ERP — Journal Headers
- * Re-skinned with the Flugur ERP dark design system.
- * Architecture matches the original LedgerPro ERP screen 1:1 —
- * only visual language (color, type, surfaces) has been swapped.
- */
+import Style from './Journal_H.module.css'
 
 const c = {
-    bg: "#0A0E1A",
-    bgTop: "#0D1220",
-    card: "#111827",
-    cardAlt: "#0F1521",
-    border: "#1F2937",
-    borderStrong: "#283142",
-    textPrimary: "#F9FAFB",
-    textSecondary: "#9CA3AF",
-    textMuted: "#6B7280",
     accent: "#6366F1",
     accentSoft: "#6366F11A",
     success: "#22C55E",
@@ -30,186 +16,6 @@ const c = {
 };
 
 const styles = {
-    page: {
-        minHeight: "100vh",
-        background: "#030718",
-        color: c.textPrimary,
-        fontFamily:
-            "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-        fontSize: 14,
-    },
-    topbar: {
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        padding: "16px 32px",
-        borderBottom: `1px solid ${c.border}`,
-        background: c.bgTop,
-    },
-    topbarLeft: { display: "flex", alignItems: "center", gap: 28 },
-    brand: { fontSize: 18, fontWeight: 700, color: c.textPrimary },
-    nav: { display: "flex", alignItems: "center", gap: 22 },
-    navItemActive: {
-        fontSize: 14,
-        fontWeight: 600,
-        color: c.textPrimary,
-        borderBottom: `2px solid ${c.accent}`,
-        paddingBottom: 4,
-    },
-    navItem: {
-        fontSize: 14,
-        fontWeight: 500,
-        color: c.textSecondary,
-        paddingBottom: 4,
-    },
-    topbarRight: { display: "flex", alignItems: "center", gap: 16 },
-    iconBtn: {
-        width: 34,
-        height: 34,
-        borderRadius: 8,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        color: c.textSecondary,
-        border: `1px solid ${c.border}`,
-        background: "transparent",
-    },
-    avatar: {
-        width: 34,
-        height: 34,
-        borderRadius: 8,
-        background: c.accent,
-        color: "#fff",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        fontSize: 12,
-        fontWeight: 700,
-    },
-    container: { padding: "28px 32px 40px" },
-    headerRow: {
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "flex-start",
-        marginBottom: 24,
-    },
-    title: { fontSize: 26, fontWeight: 700, margin: 0, color: c.textPrimary },
-    subtitle: { fontSize: 14, color: c.textSecondary, marginTop: 4 },
-    headerActions: { display: "flex", gap: 10 },
-    btnGhost: {
-        display: "flex",
-        alignItems: "center",
-        gap: 6,
-        padding: "10px 16px",
-        borderRadius: 8,
-        border: `1px solid ${c.border}`,
-        background: c.card,
-        color: c.textPrimary,
-        fontSize: 13,
-        fontWeight: 600,
-        letterSpacing: 0.3,
-        cursor: "pointer",
-    },
-    card: {
-        background: "rgba(15, 23, 42, 0.5)",
-        border: `1px solid ${c.border}`,
-        borderRadius: 12,
-        padding: 24,
-        marginBottom: 20,
-    },
-    cardTitle: { fontSize: 16, fontWeight: 700, margin: 0, color: c.textPrimary },
-    cardSubtitle: { fontSize: 13, color: c.textSecondary, marginTop: 2 },
-    formGrid: {
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr 1fr",
-        gap: 20,
-        marginTop: 20,
-    },
-    label: {
-        display: "block",
-        fontSize: 11,
-        fontWeight: 600,
-        letterSpacing: 0.6,
-        color: c.textMuted,
-        textTransform: "uppercase",
-        marginBottom: 8,
-    },
-    input: {
-        width: "100%",
-        padding: "10px 12px",
-        borderRadius: 8,
-        border: `1px solid ${c.border}`,
-        background: "rgba(2,6,23,0.6)",
-        color: c.textPrimary,
-        fontSize: 14,
-        boxSizing: "border-box",
-    },
-    inputDisabled: {
-        width: "100%",
-        padding: "10px 12px",
-        borderRadius: 8,
-        border: `1px solid ${c.border}`,
-        background: "rgba(2,6,23,0.6)",
-        color: c.textMuted,
-        fontSize: 14,
-        boxSizing: "border-box",
-    },
-    textarea: {
-        width: "100%",
-        minHeight: 64,
-        padding: "10px 12px",
-        borderRadius: 8,
-        border: `1px solid ${c.border}`,
-        background: "rgba(2,6,23,0.6)",
-        color: c.textPrimary,
-        fontSize: 14,
-        resize: "vertical",
-        fontFamily: "inherit",
-        boxSizing: "border-box",
-    },
-    formBottomRow: {
-        display: "grid",
-        gridTemplateColumns: "2fr 1fr 1fr",
-        gap: 20,
-        marginTop: 20,
-        alignItems: "start",
-    },
-
-    btnPrimary: {
-        display: "flex",
-        alignItems: "center",
-        gap: "0.5rem",
-        background: "linear-gradient(135deg, #7FB3FF, #4338CA)",
-        color: "#020617",
-        fontWeight: 600,
-        fontSize: "0.875rem",
-        padding: "0.65rem 1.1rem",
-        borderRadius: "12px",
-        border: "none",
-        cursor: "pointer",
-        boxShadow: "0 8px 20px -6px rgba(76, 141, 255, 0.4)",
-        transition: "filter .15s ease",
-        justifyContent: "flex-end",
-        marginTop: 20,
-        textDecoration: "none",
-        position: "relative",
-        right: "-87%"
-    },
-    statGrid: {
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr 1fr",
-        gap: 20,
-        marginBottom: 20,
-    },
-    statCard: {
-        background: "rgba(15, 23, 42, 0.5)",
-        border: `1px solid ${c.border}`,
-        borderRadius: 12,
-        padding: 20,
-        display: "flex",
-        alignItems: "center",
-        gap: 14,
-    },
     statIconWrap: (bg) => ({
         width: 40,
         height: 40,
@@ -220,112 +26,8 @@ const styles = {
         justifyContent: "center",
         flexShrink: 0,
     }),
-    statLabel: {
-        fontSize: 11,
-        fontWeight: 600,
-        letterSpacing: 0.6,
-        color: c.textMuted,
-        textTransform: "uppercase",
-    },
-    statValue: { fontSize: 22, fontWeight: 700, color: c.textPrimary, marginTop: 2 },
-    tableWrap: {
-        background: "rgba(15, 23, 42, 0.5)",
-        border: `1px solid ${c.border}`,
-        borderRadius: 12,
-        overflow: "hidden",
-    },
-    theadRow: {
-        display: "grid",
-        gridTemplateColumns: "1.1fr 1.1fr 2.4fr 1fr 1fr 0.8fr",
-        padding: "14px 20px",
-        borderBottom: `1px solid ${c.border}`,
-    },
-    th: {
-        fontSize: 11,
-        fontWeight: 700,
-        letterSpacing: 0.6,
-        color: c.textMuted,
-        textTransform: "uppercase",
-    },
-    tr: {
-        display: "grid",
-        gridTemplateColumns: "1.1fr 1.1fr 2.4fr 1fr 1fr 0.8fr",
-        padding: "16px 20px",
-        borderBottom: `1px solid ${c.border}`,
-        alignItems: "center",
-    },
-    trLast: {
-        display: "grid",
-        gridTemplateColumns: "1.1fr 1.1fr 2.4fr 1fr 1fr 0.8fr",
-        padding: "16px 20px",
-        alignItems: "center",
-    },
-    td: { fontSize: 14, color: c.textSecondary },
-    tdStrong: { fontSize: 14, color: c.textPrimary, fontWeight: 600 },
-    statusPillDraft: {
-        fontSize: 10.5,
-        fontWeight: 700,
-        letterSpacing: 0.4,
-        padding: "3px 9px",
-        borderRadius: 5,
-        background: c.warningSoft,
-        color: c.warning,
-        textTransform: "uppercase",
-        display: "inline-block",
-    },
-    statusPillPosted: {
-        fontSize: 10.5,
-        fontWeight: 700,
-        letterSpacing: 0.4,
-        padding: "3px 9px",
-        borderRadius: 5,
-        background: c.accentSoft,
-        color: c.accent,
-        textTransform: "uppercase",
-        display: "inline-block",
-    },
-    actionsCell: { display: "flex", gap: 12, justifyContent: "flex-end" },
-    iconAction: {
-        color: c.textMuted,
-        cursor: "pointer",
-        display: "flex",
-        alignItems: "center",
-    },
-    footer: {
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: "20px 32px",
-        borderTop: `1px solid ${c.border}`,
-        marginTop: 12,
-    },
-    footerBrand: {
-        fontSize: 11,
-        fontWeight: 700,
-        letterSpacing: 0.6,
-        color: c.textMuted,
-    },
-    footerLinks: { display: "flex", gap: 24 },
-    footerLink: { fontSize: 12.5, color: c.textSecondary },
-    footerRight: { fontSize: 12.5, color: c.textMuted },
 };
 
-function IconShield() {
-    return (
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z" />
-        </svg>
-    );
-}
-function IconHelp() {
-    return (
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <circle cx="12" cy="12" r="10" />
-            <path d="M9.5 9a2.5 2.5 0 015 0c0 1.5-2.5 2-2.5 3.5" />
-            <line x1="12" y1="17" x2="12" y2="17" />
-        </svg>
-    );
-}
 function IconExport() {
     return (
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -400,92 +102,68 @@ export default function JournalHeaders() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        // لو وصل هنا يبقى كل الـ required اتملت
         navigate("/Dashboard/Flugur_Ent");
     };
 
     return (
-        <div style={styles.page}>
-            {/* Top bar */}
-            {/* <div style={styles.topbar}>
-                <div style={styles.topbarLeft}>
-                    <div style={styles.brand}>Flugur Enterprise</div>
-                    <div style={styles.nav}>
-                        <div style={styles.navItemActive}>Journal Headers</div>
-                        <div style={styles.navItem}>General Ledger</div>
-                        <div style={styles.navItem}>Reporting</div>
-                    </div>
-                </div>
-                <div style={styles.topbarRight}>
-                    <div style={styles.iconBtn}>
-                        <IconShield />
-                    </div>
-                    <div style={styles.iconBtn}>
-                        <IconHelp />
-                    </div>
-                    <div style={styles.avatar}>JD</div>
-                </div>
-            </div> */}
+        <div className={Style.page}>
 
-            <div style={styles.container}>
+            <div className={Style.container}>
                 {/* Header */}
-                <div style={styles.headerRow}>
+                <div className={Style.headerRow}>
                     <div>
-                        <h1 style={styles.title}>LedgerPro ERP</h1>
-                        <div style={styles.subtitle}>Journal Entry Management &amp; Control</div>
+                        <h1 className={Style.title}>LedgerPro ERP</h1>
+                        <div className={Style.subtitle}>Journal Entry Management &amp; Control</div>
                     </div>
-                    <div style={styles.headerActions}>
-                        <button style={styles.btnGhost}>
+                    <div className={Style.headerActions}>
+                        <button className={Style.btnGhost}>
                             <IconExport /> EXPORT
                         </button>
-                        <button style={styles.btnGhost}>
+                        <button className={Style.btnGhost}>
                             <IconFilter /> FILTER
                         </button>
                     </div>
                 </div>
 
                 {/* Create New Journal card */}
-                <form style={styles.card} onSubmit={handleSubmit} >
-                    <div style={styles.cardTitle}>Create New Journal</div>
-                    <div style={styles.cardSubtitle}>Initialize a new financial record entry</div>
+                <form className={Style.card} onSubmit={handleSubmit} >
+                    <div className={Style.cardTitle}>Create New Journal</div>
+                    <div className={Style.cardSubtitle}>Initialize a new financial record entry</div>
 
-                    <div style={styles.formGrid}>
+                    <div className={Style.formGrid}>
                         <div>
-                            <label style={styles.label}>Journal Number</label>
-                            <input style={styles.inputDisabled} value="JN-2024-0042" disabled />
+                            <label className={Style.label}>Journal Number</label>
+                            <input className={Style.inputDisabled} value="JN-2024-0042" disabled />
                         </div>
                         <div>
-                            <label style={styles.label}>Date</label>
-                            <input style={styles.input} type="date" defaultValue="2024-05-24" />
+                            <label className={Style.label}>Date</label>
+                            <input className={Style.input} type="date" defaultValue="2024-05-24" />
                         </div>
                         <div>
-                            <label style={styles.label}>Period</label>
-                            <select style={styles.input}>
+                            <label className={Style.label}>Period</label>
+                            <select className={Style.input}>
                                 <option>2024-Q2</option>
                             </select>
                         </div>
                     </div>
 
-                    <div style={styles.formBottomRow}>
+                    <div className={Style.formBottomRow}>
                         <div>
-                            <label style={styles.label}>Description</label>
-                            <textarea style={styles.textarea} placeholder="Enter transaction details..." required />
+                            <label className={Style.label}>Description</label>
+                            <textarea className={Style.textarea} placeholder="Enter transaction details..." required />
                         </div>
                         <div>
-                            <label style={styles.label}>Source</label>
-                            <select style={styles.input}>
+                            <label className={Style.label}>Source</label>
+                            <select className={Style.input}>
                                 <option>Manual Entry</option>
                             </select>
                         </div>
                         <div>
-                            <label style={styles.label}>Status</label>
-                            <input style={styles.inputDisabled} value="DRAFT" disabled />
+                            <label className={Style.label}>Status</label>
+                            <input className={Style.inputDisabled} value="DRAFT" disabled />
                         </div>
                     </div>
-
-                    {/* <NavLink style={styles.actionRow} to="/Dashboard/Flugur_Ent" > */}
-                    <button style={styles.btnPrimary} type="submit">
+                    <button className={Style.btnPrimary} type="submit">
                         <IconPlus /> INITIALIZE JOURNAL
                     </button>
 
@@ -494,106 +172,95 @@ export default function JournalHeaders() {
                 </form>
 
                 {/* Stat cards */}
-                <div style={styles.statGrid}>
-                    <div style={styles.statCard}>
+                <div className={Style.statGrid}>
+                    <div className={Style.statCard}>
                         <div style={styles.statIconWrap(c.warningSoft)}>
                             <IconDraft />
                         </div>
                         <div>
-                            <div style={styles.statLabel}>Draft</div>
-                            <div style={styles.statValue}>12</div>
+                            <div className={Style.statLabel}>Draft</div>
+                            <div className={Style.statValue}>12</div>
                         </div>
                     </div>
-                    <div style={styles.statCard}>
+                    <div className={Style.statCard}>
                         <div style={styles.statIconWrap(c.accentSoft)}>
                             <IconPosted />
                         </div>
                         <div>
-                            <div style={styles.statLabel}>Posted</div>
-                            <div style={styles.statValue}>1,248</div>
+                            <div className={Style.statLabel}>Posted</div>
+                            <div className={Style.statValue}>1,248</div>
                         </div>
                     </div>
-                    <div style={styles.statCard}>
+                    <div className={Style.statCard}>
                         <div style={styles.statIconWrap(c.dangerSoft)}>
                             <IconReversed />
                         </div>
                         <div>
-                            <div style={styles.statLabel}>Reversed</div>
-                            <div style={styles.statValue}>4</div>
+                            <div className={Style.statLabel}>Reversed</div>
+                            <div className={Style.statValue}>4</div>
                         </div>
                     </div>
                 </div>
 
                 {/* Table */}
-                <div style={styles.tableWrap}>
-                    <div style={styles.theadRow}>
-                        <div style={styles.th}>Date</div>
-                        <div style={styles.th}>Journal #</div>
-                        <div style={styles.th}>Description</div>
-                        <div style={styles.th}>Status</div>
-                        <div style={styles.th}>Source</div>
-                        <div style={{ ...styles.th, textAlign: "right" }}>Actions</div>
+                <div className={Style.tableWrap}>
+                    <div className={Style.theadRow}>
+                        <div className={Style.th}>Date</div>
+                        <div className={Style.th}>Journal #</div>
+                        <div className={Style.th}>Description</div>
+                        <div className={Style.th}>Status</div>
+                        <div className={Style.th}>Source</div>
+                        <div className={Style.th} style={{  textAlign: "right" }}>Actions</div>
                     </div>
 
-                    <div style={styles.tr}>
-                        <div style={styles.td}>May 24, 2024</div>
-                        <div style={styles.tdStrong}>JN-2024-0041</div>
-                        <div style={styles.td}>Quarterly Office Rent - HQ</div>
+                    <div className={Style.tr}>
+                        <div className={Style.td}>May 24, 2024</div>
+                        <div className={Style.tdStrong}>JN-2024-0041</div>
+                        <div className={Style.td}>Quarterly Office Rent - HQ</div>
                         <div>
-                            <span style={styles.statusPillDraft}>DRAFT</span>
+                            <span className={Style.statusPillDraft}>DRAFT</span>
                         </div>
-                        <div style={styles.td}>Manual</div>
-                        <div style={styles.actionsCell}>
-                            <span style={styles.iconAction}>
+                        <div className={Style.td}>Manual</div>
+                        <div className={Style.actionsCell}>
+                            <span className={Style.iconAction}>
                                 <IconEdit />
                             </span>
-                            <span style={styles.iconAction}>
+                            <span className={Style.iconAction}>
                                 <IconPlay />
                             </span>
                         </div>
                     </div>
 
-                    <div style={styles.tr}>
-                        <div style={styles.td}>May 23, 2024</div>
-                        <div style={styles.tdStrong}>JN-2024-0040</div>
-                        <div style={styles.td}>Cloud Service Subscription Renewal</div>
+                    <div className={Style.tr}>
+                        <div className={Style.td}>May 23, 2024</div>
+                        <div className={Style.tdStrong}>JN-2024-0040</div>
+                        <div className={Style.td}>Cloud Service Subscription Renewal</div>
                         <div>
-                            <span style={styles.statusPillPosted}>POSTED</span>
+                            <span className={Style.statusPillPosted}>POSTED</span>
                         </div>
-                        <div style={styles.td}>API Sync</div>
-                        <div style={styles.actionsCell}>
-                            <span style={styles.iconAction}>
+                        <div className={Style.td}>API Sync</div>
+                        <div className={Style.actionsCell}>
+                            <span className={Style.iconAction}>
                                 <IconEye />
                             </span>
                         </div>
                     </div>
 
-                    <div style={styles.trLast}>
-                        <div style={styles.td}>May 22, 2024</div>
-                        <div style={styles.tdStrong}>JN-2024-0039</div>
-                        <div style={styles.td}>Salary Accrual - Engineering Dept</div>
+                    <div className={Style.trLast}>
+                        <div className={Style.td}>May 22, 2024</div>
+                        <div className={Style.tdStrong}>JN-2024-0039</div>
+                        <div className={Style.td}>Salary Accrual - Engineering Dept</div>
                         <div>
-                            <span style={styles.statusPillPosted}>POSTED</span>
+                            <span className={Style.statusPillPosted}>POSTED</span>
                         </div>
-                        <div style={styles.td}>Bulk Import</div>
-                        <div style={styles.actionsCell}>
-                            <span style={styles.iconAction}>
+                        <div className={Style.td}>Bulk Import</div>
+                        <div className={Style.actionsCell}>
+                            <span className={Style.iconAction}>
                                 <IconEye />
                             </span>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            {/* Footer */}
-            <div style={styles.footer}>
-                <div style={styles.footerBrand}>FLUGUR ENTERPRISE</div>
-                <div style={styles.footerLinks}>
-                    <div style={styles.footerLink}>System Status</div>
-                    <div style={styles.footerLink}>Security &amp; Privacy</div>
-                    <div style={styles.footerLink}>Support</div>
-                </div>
-                <div style={styles.footerRight}>© 2024 Flugur Enterprise. All rights reserved.</div>
             </div>
         </div >
     );

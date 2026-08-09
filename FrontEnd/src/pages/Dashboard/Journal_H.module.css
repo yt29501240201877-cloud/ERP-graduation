@@ -1,0 +1,313 @@
+.page {
+    min-height: 100vh;
+    background: #030718;
+    color: var(--textPrimary);
+    font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 14px;
+}
+
+.container {
+    padding: 28px 32px 40px;
+}
+
+.title {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0;
+    color: var(--textPrimary);
+}
+
+.subtitle {
+    font-size: 14px;
+    color: var(--textSecondary);
+    margin-top: 4px;
+}
+
+.headerRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+}
+
+.headerActions {
+    display: flex;
+    gap: 10px;
+}
+
+.btnGhost {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--textPrimary);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+}
+
+.card {
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+}
+
+.cardtitle {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+    color: var(--textPrimary);
+}
+
+.cardSubtitle {
+    font-size: 13px;
+    color: var(--textSecondary);
+    margin-top: 2px;
+}
+
+.formGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    color: var(--textMuted);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.input {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: rgba(2, 6, 23, 0.6);
+    color: var(--textPrimary);
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.inputDisabled {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: rgba(2, 6, 23, 0.6);
+    color: var(--textMuted);
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.textarea {
+    width: 100%;
+    min-height: 64px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: rgba(2, 6, 23, 0.6);
+    color: var(--textPrimary);
+    font-size: 14px;
+    resize: vertical;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.formBottomRow {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+    align-items: start;
+}
+
+.btnPrimary {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #7FB3FF, #4338CA);
+    color: #020617;
+    font-weight: 700;
+    font-size: 0.875rem;
+    padding: 0.65rem 1.1rem;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 8px 20px -6px rgba(76, 141, 255, 0.4);
+    transition: filter 0.15s ease;
+    justify-content: flex-end;
+    margin-top: 20px;
+    text-decoration: none;
+    position: relative;
+    right: -87%;
+}
+.statGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.statCard {
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.statLabel {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    color: var(--textMuted);
+    text-transform: uppercase;
+}
+
+.statValue {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--textPrimary);
+    margin-top: 2px;
+}
+
+.tableWrap {
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.theadRow {
+    display: grid;
+    grid-template-columns: 1.1fr 1.1fr 2.4fr 1fr 1fr 0.8fr;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.th {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    color: var(--textMuted);
+    text-transform: uppercase;
+}
+
+.tr {
+    display: grid;
+    grid-template-columns: 1.1fr 1.1fr 2.4fr 1fr 1fr 0.8fr;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    align-items: center;
+}
+
+.trLast {
+    display: grid;
+    grid-template-columns: 1.1fr 1.1fr 2.4fr 1fr 1fr 0.8fr;
+    padding: 16px 20px;
+    align-items: center;
+}
+
+.td {
+    font-size: 14px;
+    color: var(--textSecondary);
+}
+
+.tdStrong {
+    font-size: 14px;
+    color: var(--textPrimary);
+    font-weight: 600;
+}
+
+.statusPillDraft {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    padding: 3px 9px;
+    border-radius: 5px;
+    background: var(--warningSoft);
+    color: var(--warning);
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.statusPillPosted {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    padding: 3px 9px;
+    border-radius: 5px;
+    background: var(--accentSoft);
+    color: var(--accent);
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.actionsCell {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+.iconAction {
+    color: var(--textMuted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 32px;
+    border-top: 1px solid var(--border);
+    margin-top: 12px;
+}
+
+.footerBrand {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    color: var(--textMuted);
+}
+
+.footerLinks {
+    display: flex;
+    gap: 24px;
+}
+
+.footerLink {
+    font-size: 12.5px;
+    color: var(--textSecondary);
+}
+
+.footerRight {
+    font-size: 12.5px;
+    color: var(--textMuted);
+}
+
+
+
+
+
+
+
+
+
+
+
+

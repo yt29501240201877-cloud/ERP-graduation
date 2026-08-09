@@ -1,0 +1,550 @@
+.arcontent {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.75rem 2rem 3rem;
+}
+
+.arbreadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    color: #64748B;
+    margin-bottom: 1.3rem;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.arbreadcrumb b {
+    color: #93C5FD;
+}
+
+.arcard {
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(76, 141, 255, 0.1);
+    border-radius: 20px;
+    padding: 1.9rem 2rem;
+    backdrop-filter: blur(20px);
+    margin-bottom: 1.6rem;
+}
+
+.arformhead {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+}
+
+.arformtitle {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #F8FAFC;
+    margin: 0 0 0.3rem;
+}
+
+.arformsub {
+    color: #94A3B8;
+    font-size: 0.9rem;
+}
+
+.arautogenchip {
+    background: rgba(76, 141, 255, 0.12);
+    border: 1px solid rgba(96, 165, 250, 0.25);
+    color: #93C5FD;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 0.5rem 0.9rem;
+    border-radius: 10px;
+    white-space: nowrap;
+}
+
+.arformbody {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 2.5rem;
+}
+
+@media (max-width:1000px) {
+    .arformbody {
+        grid-template-columns: 1fr;
+    }
+}
+
+.arformgrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.4rem;
+    margin-bottom: 1.6rem;
+}
+
+@media (max-width:560px) {
+    .arformgrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.arfieldlabel {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #93C5FD;
+    margin-bottom: 0.55rem;
+    display: block;
+}
+
+.arinput,
+.arselect {
+    width: 100%;
+    background: rgba(2, 6, 23, 0.6);
+    border: 1.5px solid rgba(76, 141, 255, 0.14);
+    border-radius: 12px;
+    padding: 0.7rem 0.9rem;
+    font-size: 0.9rem;
+    color: #F1F5F9;
+    color-scheme: dark;
+}
+
+.arinput::placeholder {
+    color: #64748B;
+}
+
+.arinput:focus,
+.arselect:focus {
+    outline: none;
+    border-color: #4C8DFF;
+    box-shadow: 0 0 0 4px rgba(76, 141, 255, 0.16);
+}
+
+.arselect {
+    appearance: none;
+    cursor: pointer;
+}
+
+.arselectwrap {
+    position: relative;
+}
+
+.arselectcaret {
+    position: absolute;
+    right: 0.85rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748B;
+    pointer-events: none;
+}
+
+.arsidefield {
+    margin-bottom: 1.4rem;
+}
+
+.arreadonlybox {
+    background: rgba(2, 6, 23, 0.35);
+    border: 1.5px solid rgba(76, 141, 255, 0.1);
+    border-radius: 12px;
+    padding: 0.7rem 0.9rem;
+    font-size: 0.95rem;
+    color: #F1F5F9;
+    font-weight: 700;
+}
+
+.arstatustoggle {
+    display: flex;
+    gap: 0.6rem;
+}
+
+.arstatusbtn {
+    flex: 1;
+    padding: 0.65rem 0.8rem;
+    border-radius: 11px;
+    font-weight: 700;
+    font-size: 0.82rem;
+    border: 1.5px solid rgba(76, 141, 255, 0.14);
+    background: rgba(2, 6, 23, 0.6);
+    color: #94A3B8;
+    cursor: pointer;
+}
+
+.arstatusbtn.arstatusselected {
+    background: linear-gradient(135deg, #7FB3FF, #4338CA);
+    color: #020617;
+    border-color: transparent;
+}
+
+.arformdivider {
+    height: 1px;
+    background: rgba(76, 141, 255, 0.1);
+    margin: 0.4rem 0 1.4rem;
+}
+
+.arformactions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1.3rem;
+}
+
+.arbtndiscard {
+    background: none;
+    border: none;
+    color: #94A3B8;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+}
+
+.arbtndiscard:hover {
+    color: #CBD5E1;
+}
+
+.arbtngenerate {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #7FB3FF, #4338CA);
+    color: #020617;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    padding: 0.75rem 1.4rem;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 8px 20px -6px rgba(76, 141, 255, 0.4);
+}
+
+.arbtngenerate:hover {
+    filter: brightness(1.1);
+}
+
+.arbtngenerate:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.arhistoryhead {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.arhistorytitle {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #F8FAFC;
+    margin: 0 0 0.3rem;
+}
+
+.arhistorysub {
+    color: #94A3B8;
+    font-size: 0.88rem;
+}
+
+.arhistorytools {
+    display: flex;
+    gap: 0.6rem;
+}
+
+.arbtnghost {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(2, 6, 23, 0.4);
+    border: 1px solid rgba(76, 141, 255, 0.15);
+    color: #CBD5E1;
+    font-weight: 700;
+    font-size: 0.82rem;
+    padding: 0.6rem 1rem;
+    border-radius: 11px;
+    cursor: pointer;
+}
+
+.arbtnghost:hover {
+    background: rgba(30, 41, 59, 0.7);
+}
+
+.arbtnghost.arfilteron {
+    background: rgba(76, 141, 255, 0.15);
+    border-color: rgba(96, 165, 250, 0.3);
+    color: #93C5FD;
+}
+
+.arfilterrow {
+    margin-bottom: 1rem;
+}
+
+.arfilterinputwrap {
+    max-width: 340px;
+}
+
+.arfilterinput {
+    width: 100%;
+    background: rgba(2, 6, 23, 0.6);
+    border: 1px solid rgba(76, 141, 255, 0.15);
+    border-radius: 10px;
+    padding: 0.55rem 0.85rem;
+    font-size: 0.85rem;
+    color: #E2E8F0;
+}
+
+.arfilterinput::placeholder {
+    color: #64748B;
+}
+
+.arfilterinput:focus {
+    outline: none;
+    border-color: #4C8DFF;
+}
+
+.artable {
+    width: 100%;
+    font-size: 0.875rem;
+    border-collapse: collapse;
+}
+
+.artheadrow {
+    background: rgba(30, 41, 59, 0.4);
+    color: #94A3B8;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.arth {
+    padding: 0.7rem 1rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+.arrow {
+    border-top: 1px solid rgba(76, 141, 255, 0.05);
+    position: relative;
+}
+
+.arrow:hover {
+    background: rgba(59, 130, 246, 0.05);
+}
+
+.artd {
+    padding: 0.95rem 1rem;
+    vertical-align: middle;
+}
+
+.artdinvno {
+    font-weight: 700;
+    color: #F1F5F9;
+}
+
+.artddate {
+    color: #CBD5E1;
+}
+
+.artdcustomer {
+    font-weight: 600;
+    color: #F1F5F9;
+}
+
+.artdvat {
+    font-size: 0.75rem;
+    color: #64748B;
+}
+
+.artdtotal {
+    font-weight: 700;
+    color: #F8FAFC;
+    font-variant-numeric: tabular-nums;
+}
+
+.arbadge {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 0.3rem 0.65rem;
+    border-radius: 7px;
+    letter-spacing: 0.02em;
+}
+
+.arbadgeapproved {
+    background: rgba(16, 185, 129, 0.15);
+    color: #34D399;
+}
+
+.arbadgepaid {
+    background: rgba(76, 141, 255, 0.15);
+    color: #93C5FD;
+}
+
+.arbadgepending {
+    background: rgba(251, 191, 36, 0.15);
+    color: #FBBF24;
+}
+
+.arbadgedraft {
+    background: rgba(100, 116, 139, 0.18);
+    color: #94A3B8;
+}
+
+.arrowmenuwrap {
+    position: relative;
+}
+
+.armenutrigger {
+    color: #64748B;
+    cursor: pointer;
+}
+
+.armenutrigger:hover {
+    color: #E2E8F0;
+}
+
+.ardropdown {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: 0.4rem;
+    z-index: 10;
+    background: #0F172A;
+    border: 1px solid rgba(76, 141, 255, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    min-width: 160px;
+}
+
+.ardropdownitem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.6rem 0.85rem;
+    font-size: 0.82rem;
+    color: #CBD5E1;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+.ardropdownitem:hover {
+    background: rgba(76, 141, 255, 0.1);
+}
+
+.ardropdownitem.ardanger {
+    color: #FB7185;
+}
+
+.ardropdownitem.ardanger:hover {
+    background: rgba(244, 63, 94, 0.1);
+}
+
+.aremptyrow td {
+    padding: 2.5rem 1rem;
+    text-align: center;
+    color: #64748B;
+    font-size: 0.9rem;
+}
+
+.arfooterrow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0 0;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.arshowingtext {
+    font-size: 0.85rem;
+    color: #94A3B8;
+}
+
+.arpagination {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.arpagebtn {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    border: 1px solid rgba(76, 141, 255, 0.1);
+    background: transparent;
+    color: #94A3B8;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.ivfieldlabel {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #93C5FD;
+  margin-bottom: 0.45rem;
+  display: block;
+}
+
+.ivinput {
+  width: 100%;
+  background: rgba(2, 6, 23, 0.6);
+  border: 1.5px solid rgba(76, 141, 255, 0.14);
+  border-radius: 12px;
+  padding: 0.62rem 0.8rem;
+  font-size: 0.88rem;
+  color: #F1F5F9;
+  color-scheme: dark;
+}
+
+.arpagebtn:hover {
+    background: rgba(30, 41, 59, 0.6);
+}
+
+.arpagebtn.arpageactive {
+    background: #3B82F6;
+    color: #020617;
+    font-weight: 700;
+    border-color: #3B82F6;
+}
+
+.arpagebtn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.arstatusbar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    color: #64748B;
+    margin-top: 0.9rem;
+}
+
+.arstatusbar.arstatuserror {
+    color: #FB7185;
+}
+
+.arspin {
+    animation: arspin 1s linear infinite;
+}
+
+@keyframes arspin {
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -1,12 +1,7 @@
-import { UserStar } from "lucide-react";
-import React, { useState } from "react";
+import { useState } from "react";
+import Style from './Journal_L.module.css'
 
-/**
- * Flugur ERP — Journal Lines
- * Re-skinned with the Flugur ERP dark design system.
- * Architecture matches the original screen 1:1 —
- * only visual language (color, type, surfaces) has been swapped.
- */
+
 
 const c = {
     bg: "#0A0E1A",
@@ -25,285 +20,267 @@ const c = {
     danger: "#EF4444",
 };
 
-const styles = {
-    page: {
-        minHeight: "100vh",
-        background: "#040819",
-        color: c.textPrimary,
-        fontFamily:
-            "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-        fontSize: 14,
-        display: "flex",
-        flexDirection: "column",
-    },
-    topbar: {
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        padding: "16px 32px",
-        borderBottom: `1px solid ${c.border}`,
-        background: c.bgTop,
-    },
-    topbarLeft: { display: "flex", alignItems: "center", gap: 28 },
-    brand: { fontSize: 18, fontWeight: 700, color: c.textPrimary },
-    nav: { display: "flex", alignItems: "center", gap: 22 },
-    navItemActive: {
-        fontSize: 14,
-        fontWeight: 600,
-        color: c.textPrimary,
-        borderBottom: `2px solid ${c.accent}`,
-        paddingBottom: 4,
-    },
-    navItem: {
-        fontSize: 14,
-        fontWeight: 500,
-        color: c.textSecondary,
-        paddingBottom: 4,
-    },
-    topbarRight: { display: "flex", alignItems: "center", gap: 16 },
-    iconBtn: {
-        width: 34,
-        height: 34,
-        borderRadius: 8,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        color: c.textSecondary,
-        border: `1px solid ${c.border}`,
-        background: "transparent",
-    },
-    avatar: {
-        width: 34,
-        height: 34,
-        borderRadius: 8,
-        background: c.accent,
-        color: "#fff",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        fontSize: 12,
-        fontWeight: 700,
-    },
-    container: { padding: "24px 32px 40px", flex: 1 },
+// const styles = {
+//     page: {
+//         minHeight: "100vh",
+//         background: "#040819",
+//         color: c.textPrimary,
+//         fontFamily:
+//             "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+//         fontSize: 14,
+//         display: "flex",
+//         flexDirection: "column",
+//     },
+//     topbar: {
+//         display: "flex",
+//         alignItems: "center",
+//         justifyContent: "space-between",
+//         padding: "16px 32px",
+//         borderBottom: `1px solid ${c.border}`,
+//         background: c.bgTop,
+//     },
+//     topbarLeft: { display: "flex", alignItems: "center", gap: 28 },
+//     brand: { fontSize: 18, fontWeight: 700, color: c.textPrimary },
+//     nav: { display: "flex", alignItems: "center", gap: 22 },
+//     navItemActive: {
+//         fontSize: 14,
+//         fontWeight: 600,
+//         color: c.textPrimary,
+//         borderBottom: `2px solid ${c.accent}`,
+//         paddingBottom: 4,
+//     },
+//     navItem: {
+//         fontSize: 14,
+//         fontWeight: 500,
+//         color: c.textSecondary,
+//         paddingBottom: 4,
+//     },
+//     topbarRight: { display: "flex", alignItems: "center", gap: 16 },
+//     iconBtn: {
+//         width: 34,
+//         height: 34,
+//         borderRadius: 8,
+//         display: "flex",
+//         alignItems: "center",
+//         justifyContent: "center",
+//         color: c.textSecondary,
+//         border: `1px solid ${c.border}`,
+//         background: "transparent",
+//     },
+//     avatar: {
+//         width: 34,
+//         height: 34,
+//         borderRadius: 8,
+//         background: c.accent,
+//         color: "#fff",
+//         display: "flex",
+//         alignItems: "center",
+//         justifyContent: "center",
+//         fontSize: 12,
+//         fontWeight: 700,
+//     },
+//     container: { padding: "24px 32px 40px", flex: 1 },
 
-    entryCard: {
-        background: "rgba(15,23,42,0.5)",
-        border: `1px solid ${c.border}`,
-        borderRadius: 12,
-        padding: "20px 24px",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        marginBottom: 20,
-        flexWrap: "wrap",
-        gap: 16,
-    },
-    eyebrow: {
-        fontSize: 11,
-        fontWeight: 700,
-        letterSpacing: 0.6,
-        color: c.textMuted,
-        textTransform: "uppercase",
-        marginBottom: 6,
-    },
-    entryTitle: { fontSize: 22, fontWeight: 700, color: c.textPrimary },
-    entrySubtitle: { fontSize: 13.5, color: c.textSecondary, marginTop: 4 },
-    chipRow: { display: "flex", gap: 12 },
-    chip: {
-        border: `1px solid ${c.border}`,
-        borderRadius: 8,
-        padding: "8px 16px",
-        background: "rgba(2,6,23,0.6)",
-        minWidth: 90,
-    },
-    chipLabel: {
-        fontSize: 10,
-        fontWeight: 700,
-        letterSpacing: 0.5,
-        color: c.textMuted,
-        textTransform: "uppercase",
-    },
-    chipValue: { fontSize: 13.5, fontWeight: 600, color: c.textPrimary, marginTop: 4 },
-    chipValueStatus: {
-        fontSize: 13.5,
-        fontWeight: 700,
-        color: c.accent,
-        marginTop: 4,
-        display: "flex",
-        alignItems: "center",
-        gap: 6,
-    },
-    statusDot: {
-        width: 6,
-        height: 6,
-        borderRadius: "50%",
-        background: c.accent,
-        display: "inline-block",
-    },
+//     entryCard: {
+//         background: "rgba(15,23,42,0.5)",
+//         border: `1px solid ${c.border}`,
+//         borderRadius: 12,
+//         padding: "20px 24px",
+//         display: "flex",
+//         justifyContent: "space-between",
+//         alignItems: "center",
+//         marginBottom: 20,
+//         flexWrap: "wrap",
+//         gap: 16,
+//     },
+//     eyebrow: {
+//         fontSize: 11,
+//         fontWeight: 700,
+//         letterSpacing: 0.6,
+//         color: c.textMuted,
+//         textTransform: "uppercase",
+//         marginBottom: 6,
+//     },
+//     entryTitle: { fontSize: 22, fontWeight: 700, color: c.textPrimary },
+//     entrySubtitle: { fontSize: 13.5, color: c.textSecondary, marginTop: 4 },
+//     chipRow: { display: "flex", gap: 12 },
+//     chip: {
+//         border: `1px solid ${c.border}`,
+//         borderRadius: 8,
+//         padding: "8px 16px",
+//         background: "rgba(2,6,23,0.6)",
+//         minWidth: 90,
+//     },
+//     chipLabel: {
+//         fontSize: 10,
+//         fontWeight: 700,
+//         letterSpacing: 0.5,
+//         color: c.textMuted,
+//         textTransform: "uppercase",
+//     },
+//     chipValue: { fontSize: 13.5, fontWeight: 600, color: c.textPrimary, marginTop: 4 },
+//     chipValueStatus: {
+//         fontSize: 13.5,
+//         fontWeight: 700,
+//         color: c.accent,
+//         marginTop: 4,
+//         display: "flex",
+//         alignItems: "center",
+//         gap: 6,
+//     },
+//     statusDot: {
+//         width: 6,
+//         height: 6,
+//         borderRadius: "50%",
+//         background: c.accent,
+//         display: "inline-block",
+//     },
 
-    tableWrap: {
-        background: "rgba(15,23,42,0.5)",
-        border: `1px solid ${c.border}`,
-        borderRadius: 12,
-        overflow: "hidden",
-    },
-    theadRow: {
-        display: "grid",
-        gridTemplateColumns: "0.4fr 2.4fr 2.6fr 1.1fr 1.1fr 0.4fr",
-        padding: "12px 20px",
-        background: "rgba(15,23,42,0.5)",
-        borderBottom: `1px solid ${c.border}`,
-    },
-    th: {
-        fontSize: 11,
-        fontWeight: 700,
-        letterSpacing: 0.6,
-        color: c.textMuted,
-        textTransform: "uppercase",
-    },
-    tr: {
-        display: "grid",
-        gridTemplateColumns: "0.4fr 2.4fr 2.6fr 1.1fr 1.1fr 0.4fr",
-        padding: "12px 20px",
-        borderBottom: `1px solid ${c.border}`,
-        alignItems: "center",
-        gap: 12,
-    },
-    rowNum: { fontSize: 13, color: c.textMuted, fontWeight: 600 },
-    inputWrap: { position: "relative" },
-    input: {
-        width: "100%",
-        padding: "9px 12px",
-        borderRadius: 8,
-        border: `1px solid ${c.border}`,
-        background: "rgba(2,6,23,0.6)",
-        color: c.textPrimary,
-        fontSize: 13.5,
-        boxSizing: "border-box",
-    },
-    inputWithIcon: {
-        width: "100%",
-        padding: "9px 32px 9px 12px",
-        borderRadius: 8,
-        border: `1px solid ${c.border}`,
-        background: "rgba(2,6,23,0.6)",
-        color: c.textPrimary,
-        fontSize: 13.5,
-        boxSizing: "border-box",
-    },
-    searchIcon: {
-        position: "absolute",
-        right: 10,
-        top: "50%",
-        transform: "translateY(-50%)",
-        color: c.textMuted,
-    },
-    numInput: {
-        width: "100%",
-        padding: "9px 12px",
-        borderRadius: 8,
-        border: `1px solid ${c.border}`,
-        background: "rgba(2,6,23,0.6)",
-        color: c.textPrimary,
-        fontSize: 13.5,
-        textAlign: "right",
-        boxSizing: "border-box",
-    },
-    trashBtn: {
-        color: c.textMuted,
-        display: "flex",
-        justifyContent: "center",
-        cursor: "pointer",
-    },
-    addRowWrap: { padding: "14px 20px" },
-    addRow: {
-        display: "flex",
-        alignItems: "center",
-        gap: 8,
-        color: c.textSecondary,
-        fontSize: 12,
-        fontWeight: 700,
-        letterSpacing: 0.5,
-        cursor: "pointer",
-        background: "none",
-        border: "none",
-    },
+//     tableWrap: {
+//         background: "rgba(15,23,42,0.5)",
+//         border: `1px solid ${c.border}`,
+//         borderRadius: 12,
+//         overflow: "hidden",
+//     },
+//     theadRow: {
+//         display: "grid",
+//         gridTemplateColumns: "0.4fr 2.4fr 2.6fr 1.1fr 1.1fr 0.4fr",
+//         padding: "12px 20px",
+//         background: "rgba(15,23,42,0.5)",
+//         borderBottom: `1px solid ${c.border}`,
+//     },
+//     th: {
+//         fontSize: 11,
+//         fontWeight: 700,
+//         letterSpacing: 0.6,
+//         color: c.textMuted,
+//         textTransform: "uppercase",
+//     },
+//     tr: {
+//         display: "grid",
+//         gridTemplateColumns: "0.4fr 2.4fr 2.6fr 1.1fr 1.1fr 0.4fr",
+//         padding: "12px 20px",
+//         borderBottom: `1px solid ${c.border}`,
+//         alignItems: "center",
+//         gap: 12,
+//     },
+//     rowNum: { fontSize: 13, color: c.textMuted, fontWeight: 600 },
+//     inputWrap: { position: "relative" },
+//     input: {
+//         width: "100%",
+//         padding: "9px 12px",
+//         borderRadius: 8,
+//         border: `1px solid ${c.border}`,
+//         background: "rgba(2,6,23,0.6)",
+//         color: c.textPrimary,
+//         fontSize: 13.5,
+//         boxSizing: "border-box",
+//     },
+//     inputWithIcon: {
+//         width: "100%",
+//         padding: "9px 32px 9px 12px",
+//         borderRadius: 8,
+//         border: `1px solid ${c.border}`,
+//         background: "rgba(2,6,23,0.6)",
+//         color: c.textPrimary,
+//         fontSize: 13.5,
+//         boxSizing: "border-box",
+//     },
+//     searchIcon: {
+//         position: "absolute",
+//         right: 10,
+//         top: "50%",
+//         transform: "translateY(-50%)",
+//         color: c.textMuted,
+//     },
+//     numInput: {
+//         width: "100%",
+//         padding: "9px 12px",
+//         borderRadius: 8,
+//         border: `1px solid ${c.border}`,
+//         background: "rgba(2,6,23,0.6)",
+//         color: c.textPrimary,
+//         fontSize: 13.5,
+//         textAlign: "right",
+//         boxSizing: "border-box",
+//     },
+//     trashBtn: {
+//         color: c.textMuted,
+//         display: "flex",
+//         justifyContent: "center",
+//         cursor: "pointer",
+//     },
+//     addRowWrap: { padding: "14px 20px" },
+//     addRow: {
+//         display: "flex",
+//         alignItems: "center",
+//         gap: 8,
+//         color: c.textSecondary,
+//         fontSize: 12,
+//         fontWeight: 700,
+//         letterSpacing: 0.5,
+//         cursor: "pointer",
+//         background: "none",
+//         border: "none",
+//     },
 
-    footer: {
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: "18px 32px",
-        borderTop: `1px solid ${c.border}`,
-        background: c.bgFooter,
-    },
-    footerLeft: { display: "flex", alignItems: "center", gap: 28 },
-    totalBlock: { display: "flex", flexDirection: "column" },
-    totalLabel: {
-        fontSize: 10.5,
-        fontWeight: 700,
-        letterSpacing: 0.5,
-        color: c.textMuted,
-        textTransform: "uppercase",
-    },
-    totalValue: { fontSize: 16, fontWeight: 700, color: c.textPrimary, marginTop: 2 },
-    divider: { width: 1, height: 30, background: c.border },
-    balancedBadge: {
-        display: "flex",
-        alignItems: "center",
-        gap: 6,
-        padding: "6px 12px",
-        borderRadius: 20,
-        background: c.successSoft,
-        color: c.success,
-        fontSize: 12,
-        fontWeight: 700,
-    },
-    footerRight: { display: "flex", gap: 12 },
-    btnGhost: {
-        padding: "11px 20px",
-        borderRadius: 8,
-        border: `1px solid ${c.border}`,
-        background: c.card,
-        color: c.textPrimary,
-        fontSize: 13,
-        fontWeight: 600,
-        cursor: "pointer",
-    },
-    btnPrimary: {
-        display: "flex",
-        alignItems: "center",
-        gap: 8,
-        padding: "11px 20px",
-        borderRadius: 8,
-        border: "none",
-        background: c.accent,
-        color: "#fff",
-        fontSize: 13,
-        fontWeight: 700,
-        cursor: "pointer",
-        boxShadow: "0 4px 14px rgba(99,102,241,0.35)",
-    },
-};
+//     footer: {
+//         display: "flex",
+//         justifyContent: "space-between",
+//         alignItems: "center",
+//         padding: "18px 32px",
+//         borderTop: `1px solid ${c.border}`,
+//         background: c.bgFooter,
+//     },
+//     footerLeft: { display: "flex", alignItems: "center", gap: 28 },
+//     totalBlock: { display: "flex", flexDirection: "column" },
+//     totalLabel: {
+//         fontSize: 10.5,
+//         fontWeight: 700,
+//         letterSpacing: 0.5,
+//         color: c.textMuted,
+//         textTransform: "uppercase",
+//     },
+//     totalValue: { fontSize: 16, fontWeight: 700, color: c.textPrimary, marginTop: 2 },
+//     divider: { width: 1, height: 30, background: c.border },
+//     balancedBadge: {
+//         display: "flex",
+//         alignItems: "center",
+//         gap: 6,
+//         padding: "6px 12px",
+//         borderRadius: 20,
+//         background: c.successSoft,
+//         color: c.success,
+//         fontSize: 12,
+//         fontWeight: 700,
+//     },
+//     footerRight: { display: "flex", gap: 12 },
+//     btnGhost: {
+//         padding: "11px 20px",
+//         borderRadius: 8,
+//         border: `1px solid ${c.border}`,
+//         background: c.card,
+//         color: c.textPrimary,
+//         fontSize: 13,
+//         fontWeight: 600,
+//         cursor: "pointer",
+//     },
+//     btnPrimary: {
+//         display: "flex",
+//         alignItems: "center",
+//         gap: 8,
+//         padding: "11px 20px",
+//         borderRadius: 8,
+//         border: "none",
+//         background: c.accent,
+//         color: "#fff",
+//         fontSize: 13,
+//         fontWeight: 700,
+//         cursor: "pointer",
+//         boxShadow: "0 4px 14px rgba(99,102,241,0.35)",
+//     },
+// };
 
-
-
-function IconShield() {
-    return (
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z" />
-        </svg>
-    );
-}
-function IconHelp() {
-    return (
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <circle cx="12" cy="12" r="10" />
-            <path d="M9.5 9a2.5 2.5 0 015 0c0 1.5-2.5 2-2.5 3.5" />
-            <line x1="12" y1="17" x2="12" y2="17" />
-        </svg>
-    );
-}
 function IconSearch() {
     return (
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -383,51 +360,30 @@ export default function JournalLines() {
         setRows(rows.filter((row) => row.id !== id));
     };
     return (
-        <div style={styles.page}>
-            {/* Top bar */}
-            {/* <div style={styles.topbar}>
-                <div style={styles.topbarLeft}>
-                    <div style={styles.brand}>Flugur Enterprise</div>
-                    <div style={styles.nav}>
-                        <div style={styles.navItemActive}>Journals</div>
-                        <div style={styles.navItem}>Accounts</div>
-                        <div style={styles.navItem}>Reporting</div>
-                    </div>
-                </div>
-                <div style={styles.topbarRight}>
-                    <div style={styles.iconBtn}>
-                        <IconShield />
-                    </div>
-                    <div style={styles.iconBtn}>
-                        <IconHelp />
-                    </div>
-                    <div style={styles.avatar}>JD</div>
-                </div>
-            </div> */}
-
-            <div style={styles.container}>
+        <>
+            <div className={Style.container}>
                 {/* Current journal entry summary */}
-                <div style={styles.entryCard}>
+                <div className={Style.entryCard}>
                     <div>
-                        <div style={styles.eyebrow}>Current Journal Entry</div>
-                        <div style={styles.entryTitle}>JV-2024-0812</div>
-                        <div style={styles.entrySubtitle}>
+                        <div className={Style.eyebrow}>Current Journal Entry</div>
+                        <div className={Style.entryTitle}>JV-2024-0812</div>
+                        <div className={Style.entrySubtitle}>
                             Monthly Accruals - Corporate Headquarters Q3 Utilities
                         </div>
                     </div>
-                    <div style={styles.chipRow}>
-                        <div style={styles.chip}>
-                            <div style={styles.chipLabel}>Date</div>
-                            <div style={styles.chipValue}>12 Aug 2024</div>
+                    <div className={Style.chipRow}>
+                        <div className={Style.chip}>
+                            <div className={Style.chipLabel}>Date</div>
+                            <div className={Style.chipValue}>12 Aug 2024</div>
                         </div>
-                        <div style={styles.chip}>
-                            <div style={styles.chipLabel}>Currency</div>
-                            <div style={styles.chipValue}>USD</div>
+                        <div className={Style.chip}>
+                            <div className={Style.chipLabel}>Currency</div>
+                            <div className={Style.chipValue}>USD</div>
                         </div>
-                        <div style={styles.chip}>
-                            <div style={styles.chipLabel}>Status</div>
-                            <div style={styles.chipValueStatus}>
-                                <span style={styles.statusDot} />
+                        <div className={Style.chip}>
+                            <div className={Style.chipLabel}>Status</div>
+                            <div className={Style.chipValueStatus}>
+                                <span className={Style.statusDot} />
                                 DRAFT
                             </div>
                         </div>
@@ -435,71 +391,46 @@ export default function JournalLines() {
                 </div>
 
                 {/* Line items table */}
-                <div style={styles.tableWrap}>
-                    <div style={styles.theadRow}>
-                        <div style={styles.th}>#</div>
-                        <div style={styles.th}>GL Account / Search</div>
-                        <div style={styles.th}>Description</div>
-                        <div style={{ ...styles.th, textAlign: "right" }}>Debit</div>
-                        <div style={{ ...styles.th, textAlign: "right" }}>Credit</div>
-                        <div style={styles.th}></div>
+                <div className={Style.tableWrap}>
+                    <div className={Style.theadRow}>
+                        <div className={Style.th}>#</div>
+                        <div className={Style.th}>GL Account / Search</div>
+                        <div className={Style.th}>Description</div>
+                        <div className={`${Style.th}`} style={{ textAlign: "left" }}>Debit</div>
+                        <div className={`${Style.th}`} style={{ textAlign: "left" }}>Credit</div>
+                        <div className={Style.th}></div>
                     </div>
 
-                    {/* <div style={styles.tr}>
-                        <div style={styles.rowNum}>01</div>
-                        <div style={styles.inputWrap}>
-                            <input
-                                style={styles.inputWithIcon}
-                                defaultValue="6100-001 - Electricity Expense"
-                            />
-                            <span style={styles.searchIcon}>
-                                <IconSearch />
-                            </span>
-                        </div>
-                        <div>
-                            <input style={styles.input} defaultValue="HQ Main Building August" />
-                        </div>
-                        <div>
-                            <input style={styles.numInput} defaultValue="2450.00" />
-                        </div>
-                        <div>
-                            <input style={styles.numInput} defaultValue="0.00" />
-                        </div>
-                        <div style={styles.trashBtn}>
-                            <IconTrash />
-                        </div>
-                    </div> */}
-
                     {rows.map((itame, index) => (
-                        <div style={{ ...styles.tr, borderBottom: "none" }} key={itame.id}>
-                            <div style={styles.rowNum}>{String(index + 1).padStart(2, "0")}</div>
-                            <div style={styles.inputWrap}>
+                        <div className={`${Style.tr}`} style={{ borderBottom: "none" }} key={itame.id}>
+                            <div className={Style.rowNum}>{String(index + 1).padStart(2, "0")}</div>
+                            <div className={Style.inputWrap}>
                                 <input
-                                    style={styles.inputWithIcon}
+                                    className={Style.inputWithIcon}
                                     defaultValue={itame.account}
 
                                 />
-                                <span style={styles.searchIcon}>
+                                <span className={Style.searchIcon}>
                                     <IconSearch />
                                 </span>
                             </div>
                             <div>
-                                <input style={styles.input} defaultValue={itame.description} />
+                                <input className={Style.input} defaultValue={itame.description} />
                             </div>
                             <div>
-                                <input style={styles.numInput} defaultValue={itame.debit} />
+                                <input className={Style.numInput} defaultValue={itame.debit} />
                             </div>
                             <div>
-                                <input style={styles.numInput} defaultValue={itame.credit} />
+                                <input className={Style.numInput} defaultValue={itame.credit} />
                             </div>
-                            <div style={styles.trashBtn} onClick={() => handleDeleteRow(itame.id)}>
+                            <div className={Style.trashBtn} onClick={() => handleDeleteRow(itame.id)}>
                                 <IconTrash />
                             </div>
                         </div>
                     ))}
 
-                    <div style={{ ...styles.addRowWrap, borderTop: `1px solid ${c.border}` }}>
-                        <button style={styles.addRow} onClick={handleAddRow}>
+                    <div className={Style.addRowWrap} style={{ borderTop: `1px solid ${c.border}` }}>
+                        <button className={Style.addRow} onClick={handleAddRow}>
                             <IconPlus /> ADD ROW
                         </button>
                     </div>
@@ -507,28 +438,28 @@ export default function JournalLines() {
             </div>
 
             {/* Footer bar */}
-            <div style={styles.footer}>
-                <div style={styles.footerLeft}>
-                    <div style={styles.totalBlock}>
-                        <div style={styles.totalLabel}>Total Debits</div>
-                        <div style={styles.totalValue}>$ 2,450.00</div>
+            <div className={Style.footer}>
+                <div className={Style.footerLeft}>
+                    <div className={Style.totalBlock}>
+                        <div className={Style.totalLabel}>Total Debits</div>
+                        <div className={Style.totalValue}>$ 2,450.00</div>
                     </div>
-                    <div style={styles.totalBlock}>
-                        <div style={styles.totalLabel}>Total Credits</div>
-                        <div style={styles.totalValue}>$ 2,450.00</div>
+                    <div className={Style.totalBlock}>
+                        <div className={Style.totalLabel}>Total Credits</div>
+                        <div className={Style.totalValue}>$ 2,450.00</div>
                     </div>
-                    <div style={styles.divider} />
-                    <div style={styles.balancedBadge}>
+                    <div className={Style.divider} />
+                    <div className={Style.balancedBadge}>
                         <IconCheckCircle /> BALANCED (0.00)
                     </div>
                 </div>
-                <div style={styles.footerRight}>
-                    <button style={styles.btnGhost}>Save Draft</button>
-                    <button style={styles.btnPrimary}>
+                <div className={Style.footerRight}>
+                    <button className={Style.btnGhost}>Save Draft</button>
+                    <button className={Style.btnPrimary}>
                         <IconPlay /> Post to Ledger
                     </button>
                 </div>
             </div>
-        </div >
+        </>
     );
 }

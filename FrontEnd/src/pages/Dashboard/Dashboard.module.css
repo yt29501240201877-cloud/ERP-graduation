@@ -1,22 +1,557 @@
-.umpage {
-    min-height: 100vh;
+
+
+.shcontent {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.75rem 2rem 3rem;
+}
+
+.shbreadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    color: #64748B;
+    margin-bottom: 0.9rem;
+}
+
+.shbreadcrumb b {
+    color: #CBD5E1;
+    font-weight: 600;
+}
+
+.shsectionhead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.shsectiontitle {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #F8FAFC;
+    margin: 0;
+}
+
+.shrefreshnote {
+    font-size: 0.8rem;
+    color: #64748B;
+}
+
+/* ---------- Metric cards ---------- */
+.shmetricsgrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width:1100px) {
+    .shmetricsgrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width:640px) {
+    .shmetricsgrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.shmetriccard {
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(76, 141, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.1rem 1.25rem;
+    backdrop-filter: blur(20px);
+}
+
+.shmetrictop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.9rem;
+}
+
+.shmetriclabel {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    color: #94A3B8;
+    text-transform: uppercase;
+}
+
+.shtag {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 0.22rem 0.5rem;
+    border-radius: 6px;
+}
+
+.shtagok {
+    background: rgba(16, 185, 129, 0.15);
+    color: #34D399;
+}
+
+.shtagwarn {
+    background: rgba(251, 191, 36, 0.15);
+    color: #FBBF24;
+}
+
+.shmetricbottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.shmetricvalue {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #F8FAFC;
+}
+
+.shbars {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 26px;
+}
+
+.shbar {
+    width: 5px;
+    border-radius: 2px;
+}
+
+.shbargreen {
+    background: #34D399;
+}
+
+.shbaramber {
+    background: #FBBF24;
+}
+
+.shbarblue {
+    background: #60A5FA;
+}
+
+.shbars .shdotted .shbar {
+    width: 4px;
+    border-radius: 50%;
+}
+
+/* ---------- Two column row ---------- */
+.shrow2col {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+    align-items: start;
+}
+
+@media (max-width:1100px) {
+    .shrow2col {
+        grid-template-columns: 1fr;
+    }
+}
+
+.shcard {
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(76, 141, 255, 0.1);
+    border-radius: 20px;
+    padding: 1.5rem;
+    backdrop-filter: blur(20px);
+}
+
+.shcardhead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.2rem;
+}
+
+.shcardtitle {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #F8FAFC;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.shinfoicon {
+    color: #64748B;
+}
+
+/* License card */
+.shseatsrow {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 0.6rem;
+}
+
+.shseatslabel {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #F1F5F9;
+}
+
+.shseatsvalue {
+    font-size: 0.85rem;
+    color: #94A3B8;
+}
+
+.shprogresstrack {
+    height: 8px;
+    border-radius: 4px;
+    background: rgba(76, 141, 255, 0.12);
+    overflow: hidden;
+    margin-bottom: 0.7rem;
+}
+
+.shprogressfill {
+    height: 100%;
+    background: linear-gradient(90deg, #4C8DFF, #7FB3FF);
+    border-radius: 4px;
+}
+
+.shseatsnote {
+    font-size: 0.82rem;
+    color: #94A3B8;
+    line-height: 1.5;
+    margin-bottom: 1.1rem;
+}
+
+.shrenewalbox {
+    display: flex;
+    gap: 0.75rem;
+    background: rgba(76, 141, 255, 0.08);
+    border-left: 3px solid #4C8DFF;
+    border-radius: 10px;
+    padding: 0.9rem 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.shrenewallabel {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #93C5FD;
+    margin-bottom: 0.35rem;
+}
+
+.shrenewaldate {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #F8FAFC;
+}
+
+.shrenewaldays {
+    font-size: 0.8rem;
+    color: #64748B;
+    margin-left: 0.5rem;
+}
+
+.shbtnoutline {
     width: 100%;
-    display: flex;
-    background: linear-gradient(180deg, #020617 0%, #0A0F1E 55%, #020617 100%);
+    background: transparent;
+    border: 1.5px solid rgba(76, 141, 255, 0.25);
     color: #E2E8F0;
-    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 0.65rem 1rem;
+    border-radius: 12px;
+    cursor: pointer;
 }
 
-.app {
+.shbtnoutline:hover {
+    background: rgba(76, 141, 255, 0.1);
+}
+
+/* Security events */
+.shcriticalchip {
+    background: rgba(244, 63, 94, 0.15);
+    color: #FB7185;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.28rem 0.6rem;
+    border-radius: 8px;
+    margin-right: 0.5rem;
+}
+
+.shviewall {
+    background: rgba(76, 141, 255, 0.1);
+    color: #93C5FD;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.4rem 0.75rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.shviewall:hover {
+    background: rgba(76, 141, 255, 0.18);
+}
+
+.sheventstable {
+    width: 100%;
+    font-size: 0.85rem;
+    border-collapse: collapse;
+}
+
+.sheventsthead {
+    color: #64748B;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.sheventsthead th {
+    padding: 0.5rem 0.5rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+.sheventsrow td {
+    padding: 0.75rem 0.5rem;
+    border-top: 1px solid rgba(76, 141, 255, 0.06);
+    vertical-align: middle;
+}
+
+.sheventtype {
     display: flex;
-    height: 100vh;
-    overflow: hidden
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: #F1F5F9;
 }
 
-.ummain {
+.shiconrose {
+    color: #FB7185;
+}
+
+.shiconamber {
+    color: #FBBF24;
+}
+
+.shiconblue {
+    color: #60A5FA;
+}
+
+.sheventmeta {
+    color: #94A3B8;
+}
+
+.sheventaction {
+    color: #93C5FD;
+    font-weight: 700;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 0.85rem;
+}
+
+.sheventaction:hover {
+    text-decoration: underline;
+}
+
+/* Environment management */
+.shenvlist {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.shenvrow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    background: rgba(2, 6, 23, 0.4);
+    border: 1px solid rgba(76, 141, 255, 0.08);
+    border-radius: 14px;
+    padding: 0.9rem 1rem;
+    flex-wrap: wrap;
+}
+
+.shenvleft {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.shenvicon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.shenvicon.shenvprod {
+    background: linear-gradient(135deg, #4338CA, #1E1B4B);
+    color: #93C5FD;
+}
+
+.shenvicon.shenvstage {
+    background: rgba(76, 141, 255, 0.12);
+    color: #60A5FA;
+}
+
+.shenvicon.shenvsandbox {
+    background: rgba(76, 141, 255, 0.12);
+    color: #67E8F9;
+}
+
+.shenvname {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #F1F5F9;
+}
+
+.shenvversion {
+    font-size: 0.78rem;
+    color: #64748B;
+}
+
+.shenvactions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.shenvbtn {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(76, 141, 255, 0.18);
+    color: #CBD5E1;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 0.5rem 0.8rem;
+    border-radius: 9px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.shenvbtn:hover {
+    background: rgba(30, 41, 59, 0.7);
+}
+
+/* API performance */
+.shapilink {
+    color: #93C5FD;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.shapilink:hover {
+    text-decoration: underline;
+}
+
+.shapistats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.shapistatbox {
+    background: rgba(2, 6, 23, 0.4);
+    border: 1px solid rgba(76, 141, 255, 0.08);
+    border-radius: 14px;
+    padding: 1rem 1.1rem;
+}
+
+.shapistatlabel {
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #94A3B8;
+    margin-bottom: 0.5rem;
+}
+
+.shapistatvalue {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #F8FAFC;
+    margin-bottom: 0.5rem;
+}
+
+.shsuccessvalue {
+    color: #34D399;
+}
+
+.shsuccessunderline {
+    height: 3px;
+    width: 60%;
+    background: linear-gradient(90deg, #34D399, transparent);
+    border-radius: 2px;
+}
+
+.shapidelta {
+    font-size: 0.75rem;
+    color: #34D399;
+    font-weight: 600;
+}
+
+.shchart {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.9rem;
+    height: 130px;
+    padding: 0 0.25rem;
+}
+
+.shchartcol {
     flex: 1;
     display: flex;
     flex-direction: column;
-    min-width: 0;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    gap: 0.5rem;
+}
 
+.shchartbar {
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    background: rgba(148, 163, 184, 0.25);
+}
+
+.shchartbar.shchartactive {
+    background: linear-gradient(180deg, #7FB3FF, #4338CA);
+}
+
+.shchartlabel {
+    font-size: 0.68rem;
+    color: #64748B;
+}
+
+.shchartvlabel {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    color: #64748B;
+    text-transform: uppercase;
+    margin-right: 0.4rem;
+}
+
+.shchartwrap {
+    display: flex;
+    align-items: flex-end;
 }

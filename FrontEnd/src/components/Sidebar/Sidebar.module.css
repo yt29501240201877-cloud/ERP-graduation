@@ -124,3 +124,51 @@
 .umlogout:hover {
     color: #CBD5E1;
 }
+
+.umnav {
+    display: flex;
+    flex-direction: column;
+}
+
+.umnavitem,
+.umdropdownHeader {
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    gap: 12px;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #94A3B8;
+}
+
+.umdropdownHeader:hover {
+    background: rgba(30, 41, 59, 0.6);
+    color: #E2E8F0;
+}
+
+.umdropdownTitle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+}
+
+.umdropdownContent {
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.umdropdownItem {
+    padding: 10px 16px;
+    color: inherit;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.umdropdownItem:hover {
+    background: rgba(30, 41, 59, 0.6);
+    color: #E2E8F0;
+}

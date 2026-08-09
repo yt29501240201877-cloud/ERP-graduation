@@ -28,7 +28,6 @@ const NAV_ITEMS = [
       { key: "AP", label: "AP Payments", path: "/Dashboard/AP_Payment" },
     ]
   },
-  { label: "Fixed Assets", icon: Wrench, path: "/Dashboard/Assets" },
   { label: "Reports", icon: FileText, path: "/Dashboard/reports" },
   { label: "User Management", icon: Users, active: true, path: "/Dashboard/users" },
   { label: "Settings", icon: Settings, path: "/Dashboard/settings" }

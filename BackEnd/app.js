@@ -1,25 +1,25 @@
 require("dotenv").config();
-const cors = require("cors");
 
 const express = require("express");
 const app = express();
-
-app.use(cors({
-  origin: "http://localhost:5173"
-}));
-
+const cors = require("cors");
 const path = require("path");
 
-app.use("/Uploads", express.static(path.join(__dirname, "Uploads")));
+const connect = require("./Config/db")
 
 app.use(express.json());
+
+app.use(cors({
+    origin: "http://localhost:5173"
+}));
+
+connect();
+
+app.use("/Uploads", express.static(path.join(__dirname, "Uploads")));
 
 app.get('/test',(req,res)=>{
     res.json({msg:'test'})
 });
-
-const connect = require("./Config/db")
-connect();
 
 const adminRoutes = require("./Routes/usersRoutes");
 const glRoutes = require("./Routes/glRoutes");
@@ -48,8 +48,4 @@ app.use('/api/customer', customerRoutes);
 app.use('/api/ar_invoices', ar_invoicesRoutes);
 app.use('/api/ar_receipts', ar_receiptsRoutes);
 
-const port = process.env.PORT || 3000;
-    
-app.listen(port,()=>{
-    console.log("Server Running");
-});
+module.exports = app;

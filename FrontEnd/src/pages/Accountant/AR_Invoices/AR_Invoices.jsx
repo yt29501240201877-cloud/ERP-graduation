@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import { ChevronDown, ChevronRight, Filter, Download, MoreVertical, Check, Trash2, Loader2, Plus } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import Style from './AR_Invoices.module.css'
 import api from '../../../components/api'
 

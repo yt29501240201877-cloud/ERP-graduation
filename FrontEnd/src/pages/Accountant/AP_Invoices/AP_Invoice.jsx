@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import { Download, Plus, MoreVertical, ChevronLeft, ChevronRight, Filter, ArrowUpDown, Loader2, TrendingUp, X, Check, Trash2 } from "lucide-react";
 import Style from './AP_Invoice.module.css'
 import api from '../../../components/api'
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 
 
 const STORAGE_KEY = "invoices:records";

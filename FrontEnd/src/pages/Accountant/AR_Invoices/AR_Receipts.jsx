@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router';
 import { Landmark, Search, ChevronDown, PlusCircle, History, Download, CheckCircle2, Circle, CreditCard, Banknote, Globe, Loader2 } from "lucide-react";
 import Style from './AR_Receipts.module.css'
 import api from '../../../components/api'

@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router'
 // import ProtectedRoute from "./components/context/ProtectedRoute";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Login from "../src/pages/Login/Login"

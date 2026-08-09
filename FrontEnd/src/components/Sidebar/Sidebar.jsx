@@ -1,5 +1,6 @@
 import Style from './Sidebar.module.css'
-import { NavLink } from 'react-router-dom'
+
+import { NavLink } from 'react-router'
 import { useState } from 'react';
 import { LayoutGrid, BookOpen, FileText, Users, Settings, LogOut, Landmark, ChevronDown, ChevronRight, Wallet, Wrench } from "lucide-react";
 

@@ -1,0 +1,51 @@
+.invoiceTable th, .invoiceTable td, .lineItems th, .lineItems td {
+    padding:10px 15px;
+}
+
+.header {
+    font-size: 13px;
+    font-weight: 800;
+    color: #767d87;
+}
+
+.lineItems {
+    height: fit-content;
+}
+
+.lineItems tbody {
+    font-size: 14px;
+}
+
+.border {
+    border: 1px solid #0f1931;
+    border-radius: 8px;
+    background-color: #0a1122;
+}
+
+.bottomBorder {
+    border-bottom: 1px solid #0f1931;
+}
+
+.inputBckg {
+    font-size: 14px;
+
+    background-color: #0b1122;
+    color: #F5F5F5;
+    border: 2px solid #0f1931;
+    border-radius: 8px;
+    padding: 12px;
+    color-scheme: dark; 
+
+}
+
+.inputBckg::placeholder {
+    font-size: 14px;
+    color: #637289;
+    opacity: 0.6;
+}
+
+label:has(+ .inputBckg) {
+    color: #F7F4ED;
+    font-weight: 700;
+    font-size: 14px;
+}

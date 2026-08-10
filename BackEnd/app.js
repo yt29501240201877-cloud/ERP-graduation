@@ -9,6 +9,13 @@ const connect = require("./Config/db")
 
 app.use(express.json());
 
+const morgan = require("morgan");
+if(process.env.NODE_ENV === "production") {
+    app.use(morgan("combined"));
+} else {
+    app.use(morgan("dev"));
+}
+
 app.use(cors({
     origin: "http://localhost:5173"
 }));

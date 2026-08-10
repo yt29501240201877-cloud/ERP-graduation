@@ -73,7 +73,7 @@ export default function Login() {
           <div className={Style.sub}>Sign in with your enterprise credentials to continue.</div>
 
           <form onSubmit={handleSubmit}>
-            {error && <p className={`text-danger mt-2 mb-2 p-2 border border-danger text-center rounded-3 ${Style.error}`}><i class="fa-solid fa-triangle-exclamation"></i> {error}</p>}
+            {error && <p className={`text-danger mt-2 mb-2 p-2 border border-danger text-center rounded-3 ${Style.error}`}><i className="fa-solid fa-triangle-exclamation"></i> {error}</p>}
             <div className={Style.field}>
               <label className={Style.label} htmlFor="email">Work email</label>
               <div className={Style.inputShell}>
